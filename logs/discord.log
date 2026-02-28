@@ -556,3 +556,563 @@ Traceback (most recent call last):
 discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'Welcome' object has no attribute 'guild'
 [2026-02-28 12-47-05] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
 [2026-02-28 12-47-05] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-02-11] [INFO    ] discord: Cog 'Dev' erfolgreich geladen.
+[2026-02-28 14-02-12] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: f60c21fd751935013b5a15014585caa7).
+[2026-02-28 14-02-12] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: f60c21fd751935013b5a15014585caa7).
+[2026-02-28 14-02-14] [INFO    ] discord: Status-Task startet...
+[2026-02-28 14-02-14] [INFO    ] discord: Status-Task startet...
+[2026-02-28 14-02-14] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 14-02-14] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 14-02-14] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 14-02-14] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 14-08-28] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-08-28] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-08-30] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command test
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageDraw.py", line 605, in draw_text
+    mask, offset = image_text.font.getmask2(  # type: ignore[union-attr,misc]
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'getmask2'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 266, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\OneDrive\Desktop\Nexory-main\datein\welcome.py", line 117, in test
+    draw.text((50, 250), "Hallo Pillow!", fill="purple", font=font)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageDraw.py", line 661, in text
+    draw_text(ink)
+    ~~~~~~~~~^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageDraw.py", line 622, in draw_text
+    mask = image_text.font.getmask(  # type: ignore[misc]
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'getmask'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1064, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 275, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'str' object has no attribute 'getmask'
+[2026-02-28 14-08-30] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command test
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageDraw.py", line 605, in draw_text
+    mask, offset = image_text.font.getmask2(  # type: ignore[union-attr,misc]
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'getmask2'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 266, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\OneDrive\Desktop\Nexory-main\datein\welcome.py", line 117, in test
+    draw.text((50, 250), "Hallo Pillow!", fill="purple", font=font)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageDraw.py", line 661, in text
+    draw_text(ink)
+    ~~~~~~~~~^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageDraw.py", line 622, in draw_text
+    mask = image_text.font.getmask(  # type: ignore[misc]
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'getmask'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1064, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 275, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'str' object has no attribute 'getmask'
+[2026-02-28 14-09-32] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-09-32] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-09-34] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command test
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 266, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\OneDrive\Desktop\Nexory-main\datein\welcome.py", line 107, in test
+    draw.text((50, 250), "Hallo Pillow!", fill=(128,0,128,255), font=font)
+                                                                     ^^^^
+UnboundLocalError: cannot access local variable 'font' where it is not associated with a value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1064, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 275, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: UnboundLocalError: cannot access local variable 'font' where it is not associated with a value
+[2026-02-28 14-09-34] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command test
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 266, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\OneDrive\Desktop\Nexory-main\datein\welcome.py", line 107, in test
+    draw.text((50, 250), "Hallo Pillow!", fill=(128,0,128,255), font=font)
+                                                                     ^^^^
+UnboundLocalError: cannot access local variable 'font' where it is not associated with a value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1064, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 275, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: UnboundLocalError: cannot access local variable 'font' where it is not associated with a value
+[2026-02-28 14-09-56] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-09-56] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-10-00] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command test
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 266, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\OneDrive\Desktop\Nexory-main\datein\welcome.py", line 107, in test
+    draw.text((50, 250), "Hallo Pillow!", fill=(128,0,128,255), font=font)
+                                                                     ^^^^
+UnboundLocalError: cannot access local variable 'font' where it is not associated with a value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1064, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 275, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: UnboundLocalError: cannot access local variable 'font' where it is not associated with a value
+[2026-02-28 14-10-00] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command test
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 266, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\OneDrive\Desktop\Nexory-main\datein\welcome.py", line 107, in test
+    draw.text((50, 250), "Hallo Pillow!", fill=(128,0,128,255), font=font)
+                                                                     ^^^^
+UnboundLocalError: cannot access local variable 'font' where it is not associated with a value
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1064, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 275, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: UnboundLocalError: cannot access local variable 'font' where it is not associated with a value
+[2026-02-28 14-11-02] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-11-02] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-11-43] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command welcome_test
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1056, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 973, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 880, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 732, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: member is a required argument that is missing.
+[2026-02-28 14-11-43] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command welcome_test
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1056, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 973, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 880, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 732, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: member is a required argument that is missing.
+[2026-02-28 14-25-32] [INFO    ] discord: Cog 'Dev' erfolgreich geladen.
+[2026-02-28 14-25-33] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 9fa6056d25223ffdef064b617658b5dc).
+[2026-02-28 14-25-33] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 9fa6056d25223ffdef064b617658b5dc).
+[2026-02-28 14-25-35] [INFO    ] discord: Status-Task startet...
+[2026-02-28 14-25-35] [INFO    ] discord: Status-Task startet...
+[2026-02-28 14-25-35] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 14-25-35] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 14-25-35] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 14-25-35] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 14-25-44] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command welcome_banner
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1056, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 973, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 880, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 732, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: member is a required argument that is missing.
+[2026-02-28 14-25-44] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command welcome_banner
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1056, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 973, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 880, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 732, in transform
+    raise MissingRequiredArgument(param)
+discord.ext.commands.errors.MissingRequiredArgument: member is a required argument that is missing.
+[2026-02-28 14-25-58] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command welcome_banner
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 266, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\OneDrive\Desktop\Nexory-main\datein\welcome.py", line 25, in welcome_banner
+    avatar_bytes = await avatar_url.read()
+                         ^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'read'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1064, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 275, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'str' object has no attribute 'read'
+[2026-02-28 14-25-58] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command welcome_banner
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 266, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\OneDrive\Desktop\Nexory-main\datein\welcome.py", line 25, in welcome_banner
+    avatar_bytes = await avatar_url.read()
+                         ^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'read'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1064, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 275, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'str' object has no attribute 'read'
+[2026-02-28 14-26-07] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command welcome_banner
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 266, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\OneDrive\Desktop\Nexory-main\datein\welcome.py", line 25, in welcome_banner
+    avatar_bytes = await avatar_url.read()
+                         ^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'read'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1064, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 275, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'str' object has no attribute 'read'
+[2026-02-28 14-26-07] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command welcome_banner
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 266, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\OneDrive\Desktop\Nexory-main\datein\welcome.py", line 25, in welcome_banner
+    avatar_bytes = await avatar_url.read()
+                         ^^^^^^^^^^^^^^^
+AttributeError: 'str' object has no attribute 'read'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1064, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 275, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'str' object has no attribute 'read'
+[2026-02-28 14-27-26] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-27-26] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-30-45] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-30-45] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-32-53] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-32-53] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-36-34] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-36-34] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-39-45] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-39-45] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-40-34] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-40-34] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-41-04] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-41-04] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-41-08] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command welcome_banner
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1056, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 973, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 880, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 750, in transform
+    return await run_converters(ctx, converter, argument, param)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\converter.py", line 1442, in run_converters
+    return await _actual_conversion(ctx, converter, argument, param)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\converter.py", line 1326, in _actual_conversion
+    return await converter().convert(ctx, argument)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\converter.py", line 281, in convert
+    raise MemberNotFound(argument)
+discord.ext.commands.errors.MemberNotFound: Member "@Luca" not found.
+[2026-02-28 14-41-08] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command welcome_banner
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1056, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 973, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 880, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 750, in transform
+    return await run_converters(ctx, converter, argument, param)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\converter.py", line 1442, in run_converters
+    return await _actual_conversion(ctx, converter, argument, param)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\converter.py", line 1326, in _actual_conversion
+    return await converter().convert(ctx, argument)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\converter.py", line 281, in convert
+    raise MemberNotFound(argument)
+discord.ext.commands.errors.MemberNotFound: Member "@Luca" not found.
+[2026-02-28 14-41-51] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-41-51] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-42-24] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-42-24] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-42-49] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-42-49] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-44-50] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command welcome_banner
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1056, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 973, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 880, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 750, in transform
+    return await run_converters(ctx, converter, argument, param)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\converter.py", line 1442, in run_converters
+    return await _actual_conversion(ctx, converter, argument, param)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\converter.py", line 1326, in _actual_conversion
+    return await converter().convert(ctx, argument)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\converter.py", line 281, in convert
+    raise MemberNotFound(argument)
+discord.ext.commands.errors.MemberNotFound: Member "@Luca" not found.
+[2026-02-28 14-44-50] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command welcome_banner
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1056, in invoke
+    await self.prepare(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 973, in prepare
+    await self._parse_arguments(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 880, in _parse_arguments
+    transformed = await self.transform(ctx, param, attachments)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 750, in transform
+    return await run_converters(ctx, converter, argument, param)  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\converter.py", line 1442, in run_converters
+    return await _actual_conversion(ctx, converter, argument, param)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\converter.py", line 1326, in _actual_conversion
+    return await converter().convert(ctx, argument)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\converter.py", line 281, in convert
+    raise MemberNotFound(argument)
+discord.ext.commands.errors.MemberNotFound: Member "@Luca" not found.
+[2026-02-28 14-45-33] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-45-33] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-45-51] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-45-51] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-46-06] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-46-06] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-46-41] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-46-41] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-47-57] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-47-57] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-48-27] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-48-27] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-49-04] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-49-04] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-51-41] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-51-41] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-52-22] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-52-22] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-52-37] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-52-37] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-52-52] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-52-52] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-53-26] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-53-26] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-53-50] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-53-50] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-55-35] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 14-55-35] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 14-56-25] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-56-25] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-56-29] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command welcome_banner
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 266, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\OneDrive\Desktop\Nexory-main\datein\welcome.py", line 70, in welcome_banner
+    username_lenght = username_font.getsize(username)
+                      ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'FreeTypeFont' object has no attribute 'getsize'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1064, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 275, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'FreeTypeFont' object has no attribute 'getsize'
+[2026-02-28 14-56-29] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command welcome_banner
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 266, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\OneDrive\Desktop\Nexory-main\datein\welcome.py", line 70, in welcome_banner
+    username_lenght = username_font.getsize(username)
+                      ^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'FreeTypeFont' object has no attribute 'getsize'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1064, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 275, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'FreeTypeFont' object has no attribute 'getsize'
+[2026-02-28 14-58-06] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-58-06] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-58-10] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command welcome_banner
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 266, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\OneDrive\Desktop\Nexory-main\datein\welcome.py", line 71, in welcome_banner
+    username_width = username_length[2] - username_length[0]
+                     ~~~~~~~~~~~~~~~^^^
+TypeError: 'float' object is not subscriptable
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1064, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 275, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: TypeError: 'float' object is not subscriptable
+[2026-02-28 14-58-10] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command welcome_banner
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 266, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\OneDrive\Desktop\Nexory-main\datein\welcome.py", line 71, in welcome_banner
+    username_width = username_length[2] - username_length[0]
+                     ~~~~~~~~~~~~~~~^^^
+TypeError: 'float' object is not subscriptable
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1064, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 275, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: TypeError: 'float' object is not subscriptable
+[2026-02-28 14-58-55] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-58-55] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-59-51] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "relaod" is not found
+[2026-02-28 14-59-51] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "relaod" is not found
+[2026-02-28 14-59-58] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 14-59-58] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 15-01-09] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 15-01-09] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 15-03-03] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 15-03-03] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
