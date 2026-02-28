@@ -558,6 +558,7 @@ class tasks(commands.Cog):
         view.message = await interaction.response.send_message(view=view)
 
     @task.command(name="guild", description="Create a new Guild-Task")
+    @commands.has_permissions(administrator=True)
     async def create_guild(self, interaction: discord.Interaction):
         view = TaskView(self.bot, "guild", guild_id=interaction.guild.id)
         await view.setup()

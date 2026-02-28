@@ -148,3 +148,411 @@
 [2026-02-28 12-19-28] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
 [2026-02-28 12-19-28] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
 [2026-02-28 12-19-28] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-20-36] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-20-36] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-20-36] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-20-36] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-20-36] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-20-36] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-20-36] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-20-36] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-20-36] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-20-36] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-20-36] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-20-36] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-20-36] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-20-36] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-26-12] [ERROR   ] discord: Fehler beim Reload von welcome: Extension 'datein.welcome' could not be loaded or found.
+[2026-02-28 12-26-12] [ERROR   ] discord: Fehler beim Reload von welcome: Extension 'datein.welcome' could not be loaded or found.
+[2026-02-28 12-26-12] [ERROR   ] discord: Fehler beim Reload von welcome: Extension 'datein.welcome' could not be loaded or found.
+[2026-02-28 12-26-12] [ERROR   ] discord: Fehler beim Reload von welcome: Extension 'datein.welcome' could not be loaded or found.
+[2026-02-28 12-26-12] [ERROR   ] discord: Fehler beim Reload von welcome: Extension 'datein.welcome' could not be loaded or found.
+[2026-02-28 12-26-12] [ERROR   ] discord: Fehler beim Reload von welcome: Extension 'datein.welcome' could not be loaded or found.
+[2026-02-28 12-26-12] [ERROR   ] discord: Fehler beim Reload von welcome: Extension 'datein.welcome' could not be loaded or found.
+[2026-02-28 12-26-27] [INFO    ] discord: Cog 'Dev' erfolgreich geladen.
+[2026-02-28 12-27-26] [INFO    ] discord: Cog 'Dev' erfolgreich geladen.
+[2026-02-28 12-28-09] [INFO    ] discord: Cog 'Dev' erfolgreich geladen.
+[2026-02-28 12-28-10] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 86e1784dd9eed3ae65e5fc072995fc88).
+[2026-02-28 12-28-10] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 86e1784dd9eed3ae65e5fc072995fc88).
+[2026-02-28 12-28-12] [INFO    ] discord: Status-Task startet...
+[2026-02-28 12-28-12] [INFO    ] discord: Status-Task startet...
+[2026-02-28 12-28-12] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-28-12] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-28-12] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 12-28-12] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 12-28-16] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command test
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 266, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\OneDrive\Desktop\Nexory-main\datein\welcome.py", line 31, in test
+    font = ImageFont.truetype(font_path, 40)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageFont.py", line 861, in truetype
+    return freetype(font)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageFont.py", line 858, in freetype
+    return FreeTypeFont(font, size, index, encoding, layout_engine)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageFont.py", line 274, in __init__
+    self.font = core.getfont(
+                ~~~~~~~~~~~~^
+        font, size, index, encoding, layout_engine=layout_engine
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+OSError: cannot open resource
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1064, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 275, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: OSError: cannot open resource
+[2026-02-28 12-28-16] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command test
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 266, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\OneDrive\Desktop\Nexory-main\datein\welcome.py", line 31, in test
+    font = ImageFont.truetype(font_path, 40)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageFont.py", line 861, in truetype
+    return freetype(font)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageFont.py", line 858, in freetype
+    return FreeTypeFont(font, size, index, encoding, layout_engine)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageFont.py", line 274, in __init__
+    self.font = core.getfont(
+                ~~~~~~~~~~~~^
+        font, size, index, encoding, layout_engine=layout_engine
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+OSError: cannot open resource
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1064, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 275, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: OSError: cannot open resource
+[2026-02-28 12-31-41] [INFO    ] discord: Cog 'Dev' erfolgreich geladen.
+[2026-02-28 12-31-42] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 08c7c9ddd813e611705296ba8aa707aa).
+[2026-02-28 12-31-42] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 08c7c9ddd813e611705296ba8aa707aa).
+[2026-02-28 12-31-44] [INFO    ] discord: Status-Task startet...
+[2026-02-28 12-31-44] [INFO    ] discord: Status-Task startet...
+[2026-02-28 12-31-44] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-31-44] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-31-44] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 12-31-44] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 12-31-45] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command test
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 266, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\OneDrive\Desktop\Nexory-main\datein\welcome.py", line 31, in test
+    font = ImageFont.truetype(font_path, 40)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageFont.py", line 861, in truetype
+    return freetype(font)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageFont.py", line 858, in freetype
+    return FreeTypeFont(font, size, index, encoding, layout_engine)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageFont.py", line 274, in __init__
+    self.font = core.getfont(
+                ~~~~~~~~~~~~^
+        font, size, index, encoding, layout_engine=layout_engine
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+OSError: cannot open resource
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1064, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 275, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: OSError: cannot open resource
+[2026-02-28 12-31-45] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command test
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 266, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\OneDrive\Desktop\Nexory-main\datein\welcome.py", line 31, in test
+    font = ImageFont.truetype(font_path, 40)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageFont.py", line 861, in truetype
+    return freetype(font)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageFont.py", line 858, in freetype
+    return FreeTypeFont(font, size, index, encoding, layout_engine)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageFont.py", line 274, in __init__
+    self.font = core.getfont(
+                ~~~~~~~~~~~~^
+        font, size, index, encoding, layout_engine=layout_engine
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+OSError: cannot open resource
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1064, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 275, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: OSError: cannot open resource
+[2026-02-28 12-32-50] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-32-50] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-32-59] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command test
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 266, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\OneDrive\Desktop\Nexory-main\datein\welcome.py", line 32, in test
+    font = ImageFont.truetype(font_path, 40)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageFont.py", line 861, in truetype
+    return freetype(font)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageFont.py", line 858, in freetype
+    return FreeTypeFont(font, size, index, encoding, layout_engine)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageFont.py", line 274, in __init__
+    self.font = core.getfont(
+                ~~~~~~~~~~~~^
+        font, size, index, encoding, layout_engine=layout_engine
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+OSError: cannot open resource
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1064, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 275, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: OSError: cannot open resource
+[2026-02-28 12-32-59] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command test
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 266, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\OneDrive\Desktop\Nexory-main\datein\welcome.py", line 32, in test
+    font = ImageFont.truetype(font_path, 40)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageFont.py", line 861, in truetype
+    return freetype(font)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageFont.py", line 858, in freetype
+    return FreeTypeFont(font, size, index, encoding, layout_engine)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageFont.py", line 274, in __init__
+    self.font = core.getfont(
+                ~~~~~~~~~~~~^
+        font, size, index, encoding, layout_engine=layout_engine
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+OSError: cannot open resource
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1064, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 275, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: OSError: cannot open resource
+[2026-02-28 12-33-13] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command test
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 266, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\OneDrive\Desktop\Nexory-main\datein\welcome.py", line 32, in test
+    font = ImageFont.truetype(font_path, 40)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageFont.py", line 861, in truetype
+    return freetype(font)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageFont.py", line 858, in freetype
+    return FreeTypeFont(font, size, index, encoding, layout_engine)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageFont.py", line 274, in __init__
+    self.font = core.getfont(
+                ~~~~~~~~~~~~^
+        font, size, index, encoding, layout_engine=layout_engine
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+OSError: cannot open resource
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1064, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 275, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: OSError: cannot open resource
+[2026-02-28 12-33-13] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command test
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 266, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\OneDrive\Desktop\Nexory-main\datein\welcome.py", line 32, in test
+    font = ImageFont.truetype(font_path, 40)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageFont.py", line 861, in truetype
+    return freetype(font)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageFont.py", line 858, in freetype
+    return FreeTypeFont(font, size, index, encoding, layout_engine)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\PIL\ImageFont.py", line 274, in __init__
+    self.font = core.getfont(
+                ~~~~~~~~~~~~^
+        font, size, index, encoding, layout_engine=layout_engine
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+OSError: cannot open resource
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1064, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 275, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: OSError: cannot open resource
+[2026-02-28 12-34-35] [ERROR   ] discord: Fehler beim Reload von Welcome: Extension 'datein.Welcome' could not be loaded or found.
+[2026-02-28 12-34-35] [ERROR   ] discord: Fehler beim Reload von Welcome: Extension 'datein.Welcome' could not be loaded or found.
+[2026-02-28 12-34-45] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-34-45] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-35-25] [INFO    ] discord: Cog 'Dev' erfolgreich geladen.
+[2026-02-28 12-35-26] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 1b9a4ca546c3498931f7fe4292ac265f).
+[2026-02-28 12-35-26] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 1b9a4ca546c3498931f7fe4292ac265f).
+[2026-02-28 12-35-28] [INFO    ] discord: Status-Task startet...
+[2026-02-28 12-35-28] [INFO    ] discord: Status-Task startet...
+[2026-02-28 12-35-28] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-35-28] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-35-28] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 12-35-28] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 12-35-56] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-35-56] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-38-23] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-38-23] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-39-49] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-39-49] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-41-09] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-41-09] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-41-12] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "test" is not found
+[2026-02-28 12-41-12] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command None
+discord.ext.commands.errors.CommandNotFound: Command "test" is not found
+[2026-02-28 12-45-43] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-45-43] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-45-47] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command welcome_test
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 266, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\OneDrive\Desktop\Nexory-main\datein\welcome.py", line 70, in welcome_test
+    users = [users for user in self.guild.members if not member.bot]
+                               ^^^^^^^^^^
+AttributeError: 'Welcome' object has no attribute 'guild'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1064, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 275, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'Welcome' object has no attribute 'guild'
+[2026-02-28 12-45-47] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command welcome_test
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 266, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\OneDrive\Desktop\Nexory-main\datein\welcome.py", line 70, in welcome_test
+    users = [users for user in self.guild.members if not member.bot]
+                               ^^^^^^^^^^
+AttributeError: 'Welcome' object has no attribute 'guild'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1064, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 275, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'Welcome' object has no attribute 'guild'
+[2026-02-28 12-46-15] [ERROR   ] discord: Fehler beim Reload von welcome: Extension 'datein.welcome' raised an error: SyntaxError: unmatched ']' (welcome.py, line 70)
+[2026-02-28 12-46-15] [ERROR   ] discord: Fehler beim Reload von welcome: Extension 'datein.welcome' raised an error: SyntaxError: unmatched ']' (welcome.py, line 70)
+[2026-02-28 12-46-24] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-46-24] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-46-28] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command welcome_test
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 266, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\OneDrive\Desktop\Nexory-main\datein\welcome.py", line 70, in welcome_test
+    users = [user for user in self.guild.members if not user.bot]
+                              ^^^^^^^^^^
+AttributeError: 'Welcome' object has no attribute 'guild'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1064, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 275, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'Welcome' object has no attribute 'guild'
+[2026-02-28 12-46-28] [ERROR   ] discord.ext.commands.bot: Ignoring exception in command welcome_test
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 266, in wrapped
+    ret = await coro(*args, **kwargs)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\OneDrive\Desktop\Nexory-main\datein\welcome.py", line 70, in welcome_test
+    users = [user for user in self.guild.members if not user.bot]
+                              ^^^^^^^^^^
+AttributeError: 'Welcome' object has no attribute 'guild'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\bot.py", line 1376, in invoke
+    await ctx.command.invoke(ctx)
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 1064, in invoke
+    await injected(*ctx.args, **ctx.kwargs)  # type: ignore
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\lucab\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\discord\ext\commands\core.py", line 275, in wrapped
+    raise CommandInvokeError(exc) from exc
+discord.ext.commands.errors.CommandInvokeError: Command raised an exception: AttributeError: 'Welcome' object has no attribute 'guild'
+[2026-02-28 12-47-05] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-47-05] [INFO    ] discord: Reloaded `welcome.py` | Ausgeführt von luca_nexory(714361420409733171)
