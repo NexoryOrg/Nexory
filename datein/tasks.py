@@ -43,7 +43,7 @@ async def send_error(interaction, error, embed_description: str,
     logger.error(f"Unbekannter Fehler aufgetreten! {error}")
 
 
-class CreateModal(discord.ui.Modal, title="Create Task"):
+class CreateModal(discord.ui.Modal, title="📩 - Create Task"):
     def __init__(self, table_type: str, view: "TaskView"):
         super().__init__()
         self.table_type = table_type
@@ -144,7 +144,7 @@ class CreateModal(discord.ui.Modal, title="Create Task"):
             )
 
 
-class EditModal(discord.ui.Modal, title="Edit Task"):
+class EditModal(discord.ui.Modal, title="📝 - Edit Task"):
 
     def __init__(self, table_type: str, title: str, view: "TaskView"):
         super().__init__()
@@ -342,12 +342,12 @@ class TaskView(discord.ui.LayoutView):
                 accent_color=discord.Color.dark_blue().value
             )
 
-            container.add_item(discord.ui.TextDisplay(f"# Manage Tasks ({self.table_type})"))
+            container.add_item(discord.ui.TextDisplay(f"# <:settings:1034191404487954442> - Manage Tasks ({self.table_type})"))
             container.add_item(discord.ui.Separator())
 
             # CREATE
             create_btn = discord.ui.Button(
-                label="Create Task",
+                label="Create",
                 style=discord.ButtonStyle.secondary
             )
 

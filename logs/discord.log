@@ -1127,3 +1127,41 @@ discord.ext.commands.errors.CommandNotFound: Command "relaod" is not found
 [2026-02-28 22-16-56] [INFO    ] discord: Status erfolgreich gesetzt.
 [2026-02-28 22-18-16] [ERROR   ] discord: Unbekannter Fehler aufgetreten! day 29 must be in range 1..28 for month 2 in year 2026
 [2026-02-28 22-18-16] [ERROR   ] discord: Unbekannter Fehler aufgetreten! day 29 must be in range 1..28 for month 2 in year 2026
+[2026-02-28 23-14-10] [INFO    ] discord: Cog 'Dev' erfolgreich geladen.
+[2026-02-28 23-14-11] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 21591ef4c52a3a73bd4b7a987da7f5dd).
+[2026-02-28 23-14-11] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 21591ef4c52a3a73bd4b7a987da7f5dd).
+[2026-02-28 23-14-13] [INFO    ] discord: Status-Task startet...
+[2026-02-28 23-14-13] [INFO    ] discord: Status-Task startet...
+[2026-02-28 23-14-13] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 23-14-13] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 23-14-13] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 23-14-13] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 23-16-35] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 23-16-35] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 23-16-35] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 23-16-35] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 23-16-35] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 23-16-35] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 23-18-41] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 23-18-41] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 23-18-41] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 23-18-41] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 23-18-41] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 23-18-41] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 23-18-41] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 23-18-41] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 23-22-50] [INFO    ] discord: Cog 'Dev' erfolgreich geladen.
+[2026-02-28 23-24-37] [INFO    ] discord: Cog 'Dev' erfolgreich geladen.
+[2026-02-28 23-25-01] [INFO    ] discord: Cog 'Dev' erfolgreich geladen.
+[2026-02-28 23-25-01] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 06794f06a89f5c666624ea4e4c5a774d).
+[2026-02-28 23-25-01] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 06794f06a89f5c666624ea4e4c5a774d).
+[2026-02-28 23-25-03] [INFO    ] discord: Status-Task startet...
+[2026-02-28 23-25-03] [INFO    ] discord: Status-Task startet...
+[2026-02-28 23-25-03] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 23-25-03] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 23-25-03] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 23-25-03] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 23-25-36] [INFO    ] discord: Reloaded `kalender.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 23-25-36] [INFO    ] discord: Reloaded `kalender.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 23-26-57] [INFO    ] discord: Reloaded `kalender.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 23-26-57] [INFO    ] discord: Reloaded `kalender.py` | Ausgeführt von luca_nexory(714361420409733171)
