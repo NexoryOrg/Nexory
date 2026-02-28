@@ -60,13 +60,13 @@ class MainDatei(commands.Bot):
                     "CREATE TABLE IF NOT EXISTS nexory_user_tasks("
                     "userID BIGINT, title VARCHAR(50), des LONGTEXT, date DATE, remindme BOOLEAN DEFAULT FALSE)"
                 )
-                print("Tabelle nexory_user_tasks überprüft/erstellt.")
+                print("Tabelle nexory_user_tasks überprüft/erstellt")
 
                 await cur.execute(
                     "CREATE TABLE IF NOT EXISTS nexory_guild_tasks("
                     "guildID BIGINT, title VARCHAR(50), des LONGTEXT, date DATE, remindme BOOLEAN DEFAULT FALSE)"
                 )
-                print("Tabelle nexory_guild_tasks überprüft/erstellt.")
+                print("Tabelle nexory_guild_tasks überprüft/erstellt")
 
 
     async def on_ready(self):
