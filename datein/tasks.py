@@ -541,6 +541,10 @@ class tasks(commands.Cog):
         self.bot = bot
         self.reminder_loop.start()
 
+    async def cog_unload(self) -> None:
+        self.reminder_loop.cancel()
+        return await super().cog_unload()
+
     task = app_commands.Group(
         name="task",
         description="Command Group to create Tasks",
@@ -554,11 +558,93 @@ class tasks(commands.Cog):
         view.message = await interaction.response.send_message(view=view)
 
     @task.command(name="guild", description="Create a new Guild-Task")
+    @commands.has_permissions(administrator=True)
     async def create_guild(self, interaction: discord.Interaction):
         view = TaskView(self.bot, "guild", guild_id=interaction.guild.id)
         await view.setup()
         view.message = await interaction.response.send_message(view=view)
         await self.bot.wait_until_ready()
+
+
+    @tasks.loop(hours=1)
+    async def reminder_loop(self):
+        now = datetime.now(pytz.timezone("Europe/Berlin"))
+        today = now.date()
+
+        try:
+            async with self.bot.pool.acquire() as conn:
+                async with conn.cursor() as cur:
+                    await cur.execute(
+                        "SELECT userID, title, des FROM nexory_user_tasks "
+                        "WHERE remindme=TRUE AND date = %s",
+                        (today,)
+                    )
+                    rows = await cur.fetchall()
+                    for user_id, title, db_description in rows:
+                        user = self.bot.get_user(user_id)
+                        if user:
+                            try:
+                                await user.send(
+                                    f"🔔 **Erinnerung:** Deine Aufgabe **{title}** ist fällig.\n"
+                                    f"{db_description}"
+                                )
+                            except Exception:
+                                logger.warning(
+                                    f"Konnte Reminder-DM an {user_id} ({title}) nicht senden."
+                                )
+                        await cur.execute(
+                            "DELETE FROM nexory_user_tasks WHERE userID=%s AND title=%s",
+                            (user_id, title)
+                        )
+                    if rows:
+                        await conn.commit()
+        except Exception as e:
+            logger.error(f"Fehler beim Abrufen oder Löschen von User-Tasks: {e}")
+
+        if now.hour >= 10:
+            try:
+                async with self.bot.pool.acquire() as conn:
+                    async with conn.cursor() as cur:
+                        await cur.execute(
+                            "SELECT guildID, title, des FROM nexory_guild_tasks "
+                            "WHERE remindme=TRUE AND date = %s",
+                            (today,)
+                        )
+                        rows = await cur.fetchall()
+                        for guild_id, title in rows:
+                            guild = self.bot.get_guild(guild_id)
+                            if guild:
+                                channel = guild.system_channel
+                                if channel is None or not channel.permissions_for(guild.me).send_messages:
+                                    channel = next(
+                                        (c for c in guild.text_channels
+                                         if c.permissions_for(guild.me).send_messages),
+                                        None
+                                    )
+                                if channel:
+                                    try:
+                                        await channel.send(
+                                            f"🔔 **Erinnerung:** Aufgabe **{title}** ist heute fällig.\n"
+                                            f"{db_description}"
+                                        )
+                                    except Exception as e:
+                                        logger.warning(
+                                            f"Konnte Reminder in Guild {guild_id} nicht senden: {e}"
+                                        )
+                            await cur.execute(
+                                "DELETE FROM nexory_guild_tasks "
+                                "WHERE guildID=%s AND title=%s",
+                                (guild_id, title)
+                            )
+                        if rows:
+                            await conn.commit()
+            except Exception as e:
+                logger.error(f"Fehler beim Abrufen oder Aktualisieren von Guild-Tasks: {e}")
+
+    @reminder_loop.before_loop
+    async def before_reminder(self):
+        await self.bot.wait_until_ready()
+        logger.info("Reminder loop startet... auf Aufgaben prüfen")
 
 
 async def setup(bot: commands.Bot):
