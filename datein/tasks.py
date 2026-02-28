@@ -539,7 +539,6 @@ class tasks(commands.Cog):
 
     def __init__(self, bot):
         self.bot = bot
-        self.reminder_loop.start()
 
     task = app_commands.Group(
         name="task",

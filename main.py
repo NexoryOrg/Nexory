@@ -7,9 +7,9 @@ import aiomysql
 
 load_dotenv()
 token = os.getenv("TOKEN")
-host = os.getenv("HOST")
-user = os.getenv("USER")
-passwort = os.getenv("PASSWORT")
+db_host = os.getenv("DB_HOST")
+db_user = os.getenv("DB_USER")
+db_password = os.getenv("DB_PASSWORD")
 db_name = os.getenv("DB_NAME")
 
 
@@ -34,12 +34,12 @@ class MainDatei(commands.Bot):
 
         print("Verbindung zur Datenbank wird aufgebaut...")
         try:
-            print(host, user, db_name)
+            print(db_host, db_user, db_name)
             self.pool = await aiomysql.create_pool(
-                host=host,
+                host=db_host,
                 port=3306,
-                user=user,
-                password=passwort,
+                user=db_user,
+                password=db_password,
                 db=db_name,
                 minsize=1,
                 maxsize=10,
