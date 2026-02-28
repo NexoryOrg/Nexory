@@ -25,3 +25,126 @@
 [2026-02-28 11-37-56] [INFO    ] discord: Status-Task startet...
 [2026-02-28 11-37-56] [INFO    ] discord: Status erfolgreich gesetzt.
 [2026-02-28 11-37-56] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 11-39-06] [INFO    ] discord: Cog 'Dev' erfolgreich geladen.
+[2026-02-28 11-39-07] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 0d9f9f7fb074696ee12d1688c85e6a9b).
+[2026-02-28 11-39-07] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 0d9f9f7fb074696ee12d1688c85e6a9b).
+[2026-02-28 11-39-09] [INFO    ] discord: Status-Task startet...
+[2026-02-28 11-39-09] [INFO    ] discord: Status-Task startet...
+[2026-02-28 11-39-09] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 11-39-09] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 11-42-25] [INFO    ] discord: Cog 'Dev' erfolgreich geladen.
+[2026-02-28 11-42-26] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 0915f904af65701ad9fe3e818b959370).
+[2026-02-28 11-42-26] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 0915f904af65701ad9fe3e818b959370).
+[2026-02-28 11-42-28] [INFO    ] discord: Status-Task startet...
+[2026-02-28 11-42-28] [INFO    ] discord: Status-Task startet...
+[2026-02-28 11-42-28] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 11-42-28] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 11-55-16] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 11-55-16] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 11-55-16] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 11-55-16] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 11-55-16] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 11-55-16] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-00-37] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-00-37] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-00-37] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-00-37] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-00-37] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-00-37] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-00-37] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-00-37] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-01-46] [ERROR   ] discord: Unbekannter Fehler aufgetreten! time data '2026-202-2' does not match format '%Y-%m-%d'
+[2026-02-28 12-01-46] [ERROR   ] discord: Unbekannter Fehler aufgetreten! time data '2026-202-2' does not match format '%Y-%m-%d'
+[2026-02-28 12-01-46] [ERROR   ] discord: Unbekannter Fehler aufgetreten! time data '2026-202-2' does not match format '%Y-%m-%d'
+[2026-02-28 12-01-46] [ERROR   ] discord: Unbekannter Fehler aufgetreten! time data '2026-202-2' does not match format '%Y-%m-%d'
+[2026-02-28 12-12-28] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 12-12-28] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 12-12-28] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 12-12-28] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 12-13-29] [ERROR   ] discord: Fehler beim Reload von tasks: Extension 'datein.tasks' raised an error: TypeError: loop() got an unexpected keyword argument 'minues'. Did you mean 'minutes'?
+[2026-02-28 12-13-29] [ERROR   ] discord: Fehler beim Reload von tasks: Extension 'datein.tasks' raised an error: TypeError: loop() got an unexpected keyword argument 'minues'. Did you mean 'minutes'?
+[2026-02-28 12-13-29] [ERROR   ] discord: Fehler beim Reload von tasks: Extension 'datein.tasks' raised an error: TypeError: loop() got an unexpected keyword argument 'minues'. Did you mean 'minutes'?
+[2026-02-28 12-13-29] [ERROR   ] discord: Fehler beim Reload von tasks: Extension 'datein.tasks' raised an error: TypeError: loop() got an unexpected keyword argument 'minues'. Did you mean 'minutes'?
+[2026-02-28 12-13-29] [ERROR   ] discord: Fehler beim Reload von tasks: Extension 'datein.tasks' raised an error: TypeError: loop() got an unexpected keyword argument 'minues'. Did you mean 'minutes'?
+[2026-02-28 12-13-29] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-13-29] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-13-29] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-13-29] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-13-29] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-14-45] [ERROR   ] discord: Fehler beim Reload von tasks: Extension 'datein.tasks' raised an error: TypeError: loop() got an unexpected keyword argument 'minues'. Did you mean 'minutes'?
+[2026-02-28 12-14-45] [ERROR   ] discord: Fehler beim Reload von tasks: Extension 'datein.tasks' raised an error: TypeError: loop() got an unexpected keyword argument 'minues'. Did you mean 'minutes'?
+[2026-02-28 12-14-45] [ERROR   ] discord: Fehler beim Reload von tasks: Extension 'datein.tasks' raised an error: TypeError: loop() got an unexpected keyword argument 'minues'. Did you mean 'minutes'?
+[2026-02-28 12-14-45] [ERROR   ] discord: Fehler beim Reload von tasks: Extension 'datein.tasks' raised an error: TypeError: loop() got an unexpected keyword argument 'minues'. Did you mean 'minutes'?
+[2026-02-28 12-14-45] [ERROR   ] discord: Fehler beim Reload von tasks: Extension 'datein.tasks' raised an error: TypeError: loop() got an unexpected keyword argument 'minues'. Did you mean 'minutes'?
+[2026-02-28 12-14-45] [ERROR   ] discord: Fehler beim Reload von tasks: Extension 'datein.tasks' raised an error: TypeError: loop() got an unexpected keyword argument 'minues'. Did you mean 'minutes'?
+[2026-02-28 12-14-45] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-14-45] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-14-45] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-14-45] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-14-45] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-14-45] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-15-54] [INFO    ] discord: Cog 'Dev' erfolgreich geladen.
+[2026-02-28 12-16-20] [INFO    ] discord: Cog 'Dev' erfolgreich geladen.
+[2026-02-28 12-16-21] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 5f27e52c84e7d596745d2328fe5da5e1).
+[2026-02-28 12-16-21] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: 5f27e52c84e7d596745d2328fe5da5e1).
+[2026-02-28 12-16-23] [INFO    ] discord: Status-Task startet...
+[2026-02-28 12-16-23] [INFO    ] discord: Status-Task startet...
+[2026-02-28 12-16-23] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-16-23] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-16-23] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 12-16-23] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-02-28 12-16-24] [ERROR   ] discord: Fehler beim Abrufen oder Löschen von User-Tasks: not enough values to unpack (expected 3, got 2)
+[2026-02-28 12-16-24] [ERROR   ] discord: Fehler beim Abrufen oder Löschen von User-Tasks: not enough values to unpack (expected 3, got 2)
+[2026-02-28 12-16-42] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-16-42] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-16-42] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-16-42] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-16-42] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-16-42] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-16-42] [ERROR   ] discord: Fehler beim Abrufen oder Löschen von User-Tasks: not enough values to unpack (expected 3, got 2)
+[2026-02-28 12-16-42] [ERROR   ] discord: Fehler beim Abrufen oder Löschen von User-Tasks: not enough values to unpack (expected 3, got 2)
+[2026-02-28 12-16-42] [ERROR   ] discord: Fehler beim Abrufen oder Löschen von User-Tasks: not enough values to unpack (expected 3, got 2)
+[2026-02-28 12-17-03] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-17-03] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-17-03] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-17-03] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-17-03] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-17-03] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-17-03] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-17-03] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-17-03] [ERROR   ] discord: Fehler beim Abrufen oder Löschen von User-Tasks: not enough values to unpack (expected 3, got 2)
+[2026-02-28 12-17-03] [ERROR   ] discord: Fehler beim Abrufen oder Löschen von User-Tasks: not enough values to unpack (expected 3, got 2)
+[2026-02-28 12-17-03] [ERROR   ] discord: Fehler beim Abrufen oder Löschen von User-Tasks: not enough values to unpack (expected 3, got 2)
+[2026-02-28 12-17-03] [ERROR   ] discord: Fehler beim Abrufen oder Löschen von User-Tasks: not enough values to unpack (expected 3, got 2)
+[2026-02-28 12-17-55] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-17-55] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-17-55] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-17-55] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-17-55] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-17-55] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-17-55] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-17-55] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-17-55] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-17-55] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-17-55] [ERROR   ] discord: Fehler beim Abrufen oder Löschen von User-Tasks: not enough values to unpack (expected 3, got 2)
+[2026-02-28 12-17-55] [ERROR   ] discord: Fehler beim Abrufen oder Löschen von User-Tasks: not enough values to unpack (expected 3, got 2)
+[2026-02-28 12-17-55] [ERROR   ] discord: Fehler beim Abrufen oder Löschen von User-Tasks: not enough values to unpack (expected 3, got 2)
+[2026-02-28 12-17-55] [ERROR   ] discord: Fehler beim Abrufen oder Löschen von User-Tasks: not enough values to unpack (expected 3, got 2)
+[2026-02-28 12-17-55] [ERROR   ] discord: Fehler beim Abrufen oder Löschen von User-Tasks: not enough values to unpack (expected 3, got 2)
+[2026-02-28 12-18-55] [ERROR   ] discord: Fehler beim Abrufen oder Löschen von User-Tasks: not enough values to unpack (expected 3, got 2)
+[2026-02-28 12-18-55] [ERROR   ] discord: Fehler beim Abrufen oder Löschen von User-Tasks: not enough values to unpack (expected 3, got 2)
+[2026-02-28 12-18-55] [ERROR   ] discord: Fehler beim Abrufen oder Löschen von User-Tasks: not enough values to unpack (expected 3, got 2)
+[2026-02-28 12-18-55] [ERROR   ] discord: Fehler beim Abrufen oder Löschen von User-Tasks: not enough values to unpack (expected 3, got 2)
+[2026-02-28 12-18-55] [ERROR   ] discord: Fehler beim Abrufen oder Löschen von User-Tasks: not enough values to unpack (expected 3, got 2)
+[2026-02-28 12-19-28] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-19-28] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-19-28] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-19-28] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-19-28] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-19-28] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 12-19-28] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-19-28] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-19-28] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-19-28] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-19-28] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-02-28 12-19-28] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
