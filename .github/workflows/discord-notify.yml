@@ -20,7 +20,7 @@ jobs:
         with:
           webhook: ${{ secrets.DISCORD_WEBHOOK }}
           message: |
-            ${{ github.event_name | upper }} event in `${{ github.repository }}`
+            ${{ github.event_name }} event in `${{ github.repository }}`
 
             {% if github.event_name == 'push' %}
             🚀 Push auf Branch `${{ github.ref_name }}`
