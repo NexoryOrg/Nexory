@@ -31,10 +31,8 @@ jobs:
             {% if github.event_name == 'push' %}
             🚀 Push to `${{ github.ref_name }}`
             Author: `${{ github.actor }}`
-            Commits:
-            {% for c in github.event.commits %}
-            - [`${{ c.id }}`](${{ c.url }}) ${{ c.message }}
-            {% endfor %}
+            Commit: `${{ github.event.head_commit.id }}`
+            Message: `${{ github.event.head_commit.message }}`
             {% elif github.event_name == 'pull_request' %}
             PR #${{ github.event.number }} `${{ github.event.pull_request.title }}` was `${{ github.event.action }}`
             {% elif github.event_name == 'issues' %}
