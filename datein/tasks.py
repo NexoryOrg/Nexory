@@ -346,7 +346,6 @@ class TaskView(discord.ui.LayoutView):
             container.add_item(discord.ui.TextDisplay(f"# <:settings:1034191404487954442> - Manage Tasks ({self.table_type})"))
             container.add_item(discord.ui.Separator())
 
-            # CREATE
             create_btn = discord.ui.Button(
                 label="Create",
                 style=discord.ButtonStyle.secondary
@@ -361,7 +360,6 @@ class TaskView(discord.ui.LayoutView):
             container.add_item(discord.ui.TextDisplay("### Create Task"))
             container.add_item(discord.ui.ActionRow(create_btn))
 
-            # EDIT
             container.add_item(discord.ui.TextDisplay("### Edit Task"))
 
             if self.tasks:
@@ -397,7 +395,6 @@ class TaskView(discord.ui.LayoutView):
             select_edit.callback = edit_sc
             container.add_item(discord.ui.ActionRow(select_edit))
 
-            # DELETE
             container.add_item(discord.ui.TextDisplay("### Delete Task"))
 
             select_delete = discord.ui.Select(
@@ -422,7 +419,6 @@ class TaskView(discord.ui.LayoutView):
             select_delete.callback = delete_sc
             container.add_item(discord.ui.ActionRow(select_delete))
 
-            # LIST TASKS
             container.add_item(discord.ui.TextDisplay("### Show Tasks"))
 
             if self.tasks:
