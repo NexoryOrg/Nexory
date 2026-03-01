@@ -21,28 +21,62 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
-      - name: Send message to Discord
-        uses: Ilshidur/action-discord@v0.4.0
+      - name: Notify push
+        if: github.event_name == 'push'
+        uses: Ilshidur/action-discord@0.4.0
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
         with:
-          webhook: ${{ secrets.DISCORD_WEBHOOK }}
-          message: |
-            ${{ github.event_name }} event in `${{ github.repository }}`
+          args: |
+            🚀 Push to ${{ github.ref_name }}
+            Author: ${{ github.actor }}
+            Commit: ${{ github.event.head_commit.id }}
+            Message: ${{ github.event.head_commit.message }}
 
-            {% if github.event_name == 'push' %}
-            🚀 Push to `${{ github.ref_name }}`
-            Author: `${{ github.actor }}`
-            Commit: `${{ github.event.head_commit.id }}`
-            Message: `${{ github.event.head_commit.message }}`
-            {% elif github.event_name == 'pull_request' %}
-            PR #${{ github.event.number }} `${{ github.event.pull_request.title }}` was `${{ github.event.action }}`
-            {% elif github.event_name == 'issues' %}
-            Issue #${{ github.event.issue.number }} `${{ github.event.issue.title }}` was `${{ github.event.action }}`
-            {% elif github.event_name == 'discussion' %}
-            Discussion `${{ github.event.discussion.title }}` was `${{ github.event.action }}`
-            {% elif github.event_name == 'issue_comment' %}
-            Comment on issue #${{ github.event.issue.number }} by `${{ github.event.comment.user.login }}`
-            {% elif github.event_name == 'pull_request_review_comment' %}
-            Comment on PR #${{ github.event.pull_request.number }} by `${{ github.event.comment.user.login }}`
-            {% elif github.event_name == 'discussion_comment' %}
-            Comment on discussion `${{ github.event.discussion.title }}` by `${{ github.event.comment.user.login }}`
-            {% endif %}
+      - name: Notify pull request
+        if: github.event_name == 'pull_request'
+        uses: Ilshidur/action-discord@0.4.0
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        with:
+          args: PR #${{ github.event.number }} "${{ github.event.pull_request.title }}" was ${{ github.event.action }}
+
+      - name: Notify issue
+        if: github.event_name == 'issues'
+        uses: Ilshidur/action-discord@0.4.0
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        with:
+          args: Issue #${{ github.event.issue.number }} "${{ github.event.issue.title }}" was ${{ github.event.issue.action }}
+
+      - name: Notify discussion
+        if: github.event_name == 'discussion'
+        uses: Ilshidur/action-discord@0.4.0
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        with:
+          args: Discussion "${{ github.event.discussion.title }}" was ${{ github.event.action }}
+
+      - name: Notify issue comment
+        if: github.event_name == 'issue_comment'
+        uses: Ilshidur/action-discord@0.4.0
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        with:
+          args: Comment on issue #${{ github.event.issue.number }} by ${{ github.event.comment.user.login }}
+
+      - name: Notify PR review comment
+        if: github.event_name == 'pull_request_review_comment'
+        uses: Ilshidur/action-discord@0.4.0
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        with:
+          args: Comment on PR #${{ github.event.pull_request.number }} by ${{ github.event.comment.user.login }}
+
+      - name: Notify discussion comment
+        if: github.event_name == 'discussion_comment'
+        uses: Ilshidur/action-discord@0.4.0
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        with:
+          args: Comment on discussion "${{ github.event.discussion.title }}" by ${{ github.event.comment.user.login }}
