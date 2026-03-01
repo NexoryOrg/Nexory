@@ -1180,3 +1180,5 @@ discord.ext.commands.errors.CommandNotFound: Command "relaod" is not found
 [2026-03-01 10-57-00] [INFO    ] discord: Status erfolgreich gesetzt.
 [2026-03-01 10-57-03] [ERROR   ] discord: Fehler beim Abrufen oder Aktualisieren von Guild-Tasks: too many values to unpack (expected 2, got 3)
 [2026-03-01 10-57-03] [ERROR   ] discord: Fehler beim Abrufen oder Aktualisieren von Guild-Tasks: too many values to unpack (expected 2, got 3)
+[2026-03-01 11-15-43] [INFO    ] discord: Reloaded `kalender.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-01 11-15-43] [INFO    ] discord: Reloaded `kalender.py` | Ausgeführt von luca_nexory(714361420409733171)
