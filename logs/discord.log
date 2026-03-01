@@ -1165,3 +1165,7 @@ discord.ext.commands.errors.CommandNotFound: Command "relaod" is not found
 [2026-02-28 23-25-36] [INFO    ] discord: Reloaded `kalender.py` | Ausgeführt von luca_nexory(714361420409733171)
 [2026-02-28 23-26-57] [INFO    ] discord: Reloaded `kalender.py` | Ausgeführt von luca_nexory(714361420409733171)
 [2026-02-28 23-26-57] [INFO    ] discord: Reloaded `kalender.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-02-28 23-28-38] [WARNING ] discord.gateway: Can't keep up, shard ID None websocket is 10.9s behind.
+[2026-02-28 23-28-38] [WARNING ] discord.gateway: Can't keep up, shard ID None websocket is 10.9s behind.
+[2026-02-28 23-28-38] [WARNING ] discord.gateway: Can't keep up, shard ID None websocket is 10.9s behind.
+[2026-02-28 23-28-38] [WARNING ] discord.gateway: Can't keep up, shard ID None websocket is 10.9s behind.
