@@ -59,9 +59,6 @@ jobs:
         with:
           args: ""
 
-      - name: Notify pull request
-        if: github.event_name == 'pull_request'
-        # build pull request embed
       - name: Build pull request embed
         id: build_pr
         if: github.event_name == 'pull_request'
@@ -94,18 +91,10 @@ jobs:
       
       - name: Notify pull request
         uses: Ilshidur/action-discord@0.4.0
+        if: github.event_name == 'pull_request'
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           DISCORD_EMBEDS: ${{ steps.build_pr.outputs.embeds }}
-        with:
-          args: ""
-
-      - name: Notify issue
-        if: github.event_name == 'issues'
-        uses: Ilshidur/action-discord@0.4.0
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          DISCORD_EMBEDS: ${{ steps.build_issue.outputs.embeds }}
         with:
           args: ""
 
@@ -139,12 +128,12 @@ jobs:
               f.write('\nEOF\n')
           PY
 
-      - name: Notify discussion
-        if: github.event_name == 'discussion'
+      - name: Notify issue
+        if: github.event_name == 'issues'
         uses: Ilshidur/action-discord@0.4.0
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          DISCORD_EMBEDS: ${{ steps.build_discussion.outputs.embeds }}
+          DISCORD_EMBEDS: ${{ steps.build_issue.outputs.embeds }}
         with:
           args: ""
 
@@ -173,12 +162,12 @@ jobs:
               f.write('\nEOF\n')
           PY
 
-      - name: Notify issue comment
-        if: github.event_name == 'issue_comment'
+      - name: Notify discussion
+        if: github.event_name == 'discussion'
         uses: Ilshidur/action-discord@0.4.0
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          DISCORD_EMBEDS: ${{ steps.build_issue_comment.outputs.embeds }}
+          DISCORD_EMBEDS: ${{ steps.build_discussion.outputs.embeds }}
         with:
           args: ""
 
@@ -209,6 +198,15 @@ jobs:
               f.write(json.dumps(data))
               f.write('\nEOF\n')
           PY
+
+      - name: Notify issue comment
+        if: github.event_name == 'issue_comment'
+        uses: Ilshidur/action-discord@0.4.0
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          DISCORD_EMBEDS: ${{ steps.build_issue_comment.outputs.embeds }}
+        with:
+          args: ""
 
       - name: Notify PR review comment
         if: github.event_name == 'pull_request_review_comment'
