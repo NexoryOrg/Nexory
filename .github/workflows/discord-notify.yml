@@ -21,120 +21,190 @@ jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
+      - name: Build push embed
+        id: build_push
+        if: github.event_name == 'push'
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          ev = json.load(open(os.environ['GITHUB_EVENT_PATH']))
+          head = ev.get('head_commit', {})
+          data = [{
+            "title": f"🚀 Push to {os.environ.get('GITHUB_REF_NAME','')}",
+            "description": f"Author: {os.environ.get('GITHUB_ACTOR','')}",
+            "color": 3447003,
+            "author": {"name": os.environ.get('GITHUB_ACTOR',''), "url": f"https://github.com/{os.environ.get('GITHUB_ACTOR','')}", "icon_url": f"https://github.com/{os.environ.get('GITHUB_ACTOR','')}.png"},
+            "thumbnail": {"url": f"https://github.com/{os.environ.get('GITHUB_ACTOR','')}.png"},
+            "fields": [
+              {"name": "Commit", "value": head.get('id','') , "inline": True},
+              {"name": "Message", "value": head.get('message',''), "inline": False}
+            ],
+            "timestamp": head.get('timestamp',''),
+            "footer": {"text": os.environ.get('GITHUB_REPOSITORY','')}
+          }]
+          out = os.environ['GITHUB_OUTPUT']
+          with open(out, 'a') as f:
+              f.write('embeds<<EOF\n')
+              f.write(json.dumps(data))
+              f.write('\nEOF\n')
+          PY
+
       - name: Notify push
         if: github.event_name == 'push'
         uses: Ilshidur/action-discord@0.4.0
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          DISCORD_EMBEDS: |
-             [
-               {
-                 "title": "🚀 Push to ${{ github.ref_name }}",
-                 "description": "Author: ${{ github.actor }}",
-                 "color": 3447003,
-                 "author": { "name": "${{ github.actor }}", "url": "https://github.com/${{ github.actor }}", "icon_url": "https://github.com/${{ github.actor }}.png" },
-                 "thumbnail": { "url": "https://github.com/${{ github.actor }}.png" },
-                 "fields": [
-                   { "name": "Commit", "value": "${{ github.event.head_commit.id }}", "inline": true },
-                   { "name": "Message", "value": "${{ github.event.head_commit.message }}", "inline": false }
-                 ],
-                 "timestamp": "${{ github.event.head_commit.timestamp }}",
-                 "footer": { "text": "${{ github.repository }}" }
-               }
-             ]
+          DISCORD_EMBEDS: ${{ steps.build_push.outputs.embeds }}
         with:
           args: ""
 
-      - name: Notify pull request
+      - name: Build pull request embed
+        id: build_pr
         if: github.event_name == 'pull_request'
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          ev = json.load(open(os.environ['GITHUB_EVENT_PATH']))
+          pr = ev.get('pull_request', {})
+          user = pr.get('user', {})
+          data = [{
+            "title": f"🛠 Pull Request #{ev.get('number','')}",
+            "description": pr.get('title',''),
+            "color": 3066993,
+            "author": {"name": user.get('login',''), "url": f"https://github.com/{user.get('login','')}", "icon_url": f"https://github.com/{user.get('login','')}.png"},
+            "thumbnail": {"url": f"https://github.com/{user.get('login','')}.png"},
+            "fields": [
+              {"name": "Action", "value": ev.get('action',''), "inline": True},
+              {"name": "User", "value": user.get('login',''), "inline": True}
+            ],
+            "url": pr.get('html_url',''),
+            "footer": {"text": os.environ.get('GITHUB_REPOSITORY','')}
+          }]
+          out = os.environ['GITHUB_OUTPUT']
+          with open(out,'a') as f:
+              f.write('embeds<<EOF\n')
+              f.write(json.dumps(data))
+              f.write('\nEOF\n')
+          PY
+      
+      - name: Notify pull request
         uses: Ilshidur/action-discord@0.4.0
+        if: github.event_name == 'pull_request'
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          DISCORD_EMBEDS: |
-            [
-              {
-                "title": "🛠 Pull Request #${{ github.event.number }}",
-                "description": "${{ github.event.pull_request.title }}",
-                "color": 3066993,
-                "author": { "name": "${{ github.event.pull_request.user.login }}", "url": "https://github.com/${{ github.event.pull_request.user.login }}", "icon_url": "https://github.com/${{ github.event.pull_request.user.login }}.png" },
-                "thumbnail": { "url": "https://github.com/${{ github.event.pull_request.user.login }}.png" },
-                "fields": [
-                  { "name": "Action", "value": "${{ github.event.action }}", "inline": true },
-                  { "name": "User", "value": "${{ github.event.pull_request.user.login }}", "inline": true }
-                ],
-                "url": "${{ github.event.pull_request.html_url }}",
-                "footer": { "text": "${{ github.repository }}" }
-              }
-            ]
+          DISCORD_EMBEDS: ${{ steps.build_pr.outputs.embeds }}
         with:
           args: ""
+
+      - name: Build issue embed
+        id: build_issue
+        if: github.event_name == 'issues'
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          ev = json.load(open(os.environ['GITHUB_EVENT_PATH']))
+          issue = ev.get('issue', {})
+          user = issue.get('user', {})
+          data = [{
+            "title": f"🐛 Issue #{issue.get('number','')}",
+            "description": issue.get('title',''),
+            "color": 15105570,
+            "author": {"name": user.get('login',''), "url": f"https://github.com/{user.get('login','')}", "icon_url": f"https://github.com/{user.get('login','')}.png"},
+            "thumbnail": {"url": f"https://github.com/{user.get('login','')}.png"},
+            "fields": [
+              {"name": "Action", "value": ev.get('action',''), "inline": True},
+              {"name": "User", "value": user.get('login',''), "inline": True}
+            ],
+            "url": issue.get('html_url',''),
+            "footer": {"text": os.environ.get('GITHUB_REPOSITORY','')}
+          }]
+          out = os.environ['GITHUB_OUTPUT']
+          with open(out,'a') as f:
+              f.write('embeds<<EOF\n')
+              f.write(json.dumps(data))
+              f.write('\nEOF\n')
+          PY
 
       - name: Notify issue
         if: github.event_name == 'issues'
         uses: Ilshidur/action-discord@0.4.0
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          DISCORD_EMBEDS: |
-            [
-              {
-                "title": "🐛 Issue #${{ github.event.issue.number }}",
-                "description": "${{ github.event.issue.title }}",
-                "color": 15105570,
-                "author": { "name": "${{ github.event.issue.user.login }}", "url": "https://github.com/${{ github.event.issue.user.login }}", "icon_url": "https://github.com/${{ github.event.issue.user.login }}.png" },
-                "thumbnail": { "url": "https://github.com/${{ github.event.issue.user.login }}.png" },
-                "fields": [
-                  { "name": "Action", "value": "${{ github.event.issue.action }}", "inline": true },
-                  { "name": "User", "value": "${{ github.event.issue.user.login }}", "inline": true }
-                ],
-                "url": "${{ github.event.issue.html_url }}",
-                "footer": { "text": "${{ github.repository }}" }
-              }
-            ]
+          DISCORD_EMBEDS: ${{ steps.build_issue.outputs.embeds }}
         with:
           args: ""
+
+      - name: Build discussion embed
+        id: build_discussion
+        if: github.event_name == 'discussion'
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          ev = json.load(open(os.environ['GITHUB_EVENT_PATH']))
+          disc = ev.get('discussion', {})
+          data = [{
+            "title": "💬 Discussion",
+            "description": disc.get('title',''),
+            "color": 10181046,
+            "author": {"name": os.environ.get('GITHUB_ACTOR',''), "url": f"https://github.com/{os.environ.get('GITHUB_ACTOR','')}", "icon_url": f"https://github.com/{os.environ.get('GITHUB_ACTOR','')}.png"},
+            "fields": [{"name": "Action", "value": ev.get('action',''), "inline": True}],
+            "url": disc.get('html_url',''),
+            "footer": {"text": os.environ.get('GITHUB_REPOSITORY','')}
+          }]
+          out = os.environ['GITHUB_OUTPUT']
+          with open(out,'a') as f:
+              f.write('embeds<<EOF\n')
+              f.write(json.dumps(data))
+              f.write('\nEOF\n')
+          PY
 
       - name: Notify discussion
         if: github.event_name == 'discussion'
         uses: Ilshidur/action-discord@0.4.0
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          DISCORD_EMBEDS: |
-            [
-              {
-                "title": "💬 Discussion",
-                "description": "${{ github.event.discussion.title }}",
-                "color": 10181046,
-                "author": { "name": "${{ github.actor }}", "url": "https://github.com/${{ github.actor }}", "icon_url": "https://github.com/${{ github.actor }}.png" },
-                "fields": [
-                  { "name": "Action", "value": "${{ github.event.action }}", "inline": true }
-                ],
-                "url": "${{ github.event.discussion.html_url }}",
-                "footer": { "text": "${{ github.repository }}" }
-              }
-            ]
+          DISCORD_EMBEDS: ${{ steps.build_discussion.outputs.embeds }}
         with:
           args: ""
+
+      - name: Build issue comment embed
+        id: build_issue_comment
+        if: github.event_name == 'issue_comment'
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+          ev = json.load(open(os.environ['GITHUB_EVENT_PATH']))
+          comment = ev.get('comment', {})
+          issue = ev.get('issue', {})
+          user = comment.get('user', {})
+          data = [{
+            "title": f"💬 Comment on Issue #{issue.get('number','')}",
+            "description": comment.get('body',''),
+            "color": 9807270,
+            "author": {"name": user.get('login',''), "url": f"https://github.com/{user.get('login','')}", "icon_url": f"https://github.com/{user.get('login','')}.png"},
+            "thumbnail": {"url": f"https://github.com/{user.get('login','')}.png"},
+            "fields": [{"name": "User", "value": user.get('login',''), "inline": True}],
+            "url": comment.get('html_url',''),
+            "footer": {"text": os.environ.get('GITHUB_REPOSITORY','')}
+          }]
+          out = os.environ['GITHUB_OUTPUT']
+          with open(out,'a') as f:
+              f.write('embeds<<EOF\n')
+              f.write(json.dumps(data))
+              f.write('\nEOF\n')
+          PY
 
       - name: Notify issue comment
         if: github.event_name == 'issue_comment'
         uses: Ilshidur/action-discord@0.4.0
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          DISCORD_EMBEDS: |
-            [
-              {
-                "title": "💬 Comment on Issue #${{ github.event.issue.number }}",
-                "description": "${{ github.event.comment.body }}",
-                "color": 9807270,
-                "author": { "name": "${{ github.event.comment.user.login }}", "url": "https://github.com/${{ github.event.comment.user.login }}", "icon_url": "https://github.com/${{ github.event.comment.user.login }}.png" },
-                "thumbnail": { "url": "https://github.com/${{ github.event.comment.user.login }}.png" },
-                "fields": [
-                  { "name": "User", "value": "${{ github.event.comment.user.login }}", "inline": true }
-                ],
-                "url": "${{ github.event.comment.html_url }}",
-                "footer": { "text": "${{ github.repository }}" }
-              }
-            ]
+          DISCORD_EMBEDS: ${{ steps.build_issue_comment.outputs.embeds }}
         with:
           args: ""
 
@@ -183,4 +253,3 @@ jobs:
             ]
         with:
           args: ""
-
