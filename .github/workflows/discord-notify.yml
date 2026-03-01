@@ -109,14 +109,13 @@ jobs:
           issue = ev.get('issue', {})
           user = issue.get('user', {})
           data = [{
-            "title": f"🐛 Issue #{issue.get('number','')}",
-            "description": issue.get('title',''),
-            "color": 15105570,
+            "title": f"<:x_:1034902940017774662> - Issue #{issue.get('number','')}",
+            "description": f"*+Title:**\n{issue.get('title','')}",
+            "color": 16711680,
             "author": {"name": user.get('login',''), "url": f"https://github.com/{user.get('login','')}", "icon_url": f"https://github.com/{user.get('login','')}.png"},
-            "thumbnail": {"url": f"https://github.com/{user.get('login','')}.png"},
             "fields": [
-              {"name": "Action", "value": ev.get('action',''), "inline": True},
-              {"name": "User", "value": user.get('login',''), "inline": True}
+              {"name": "Action", "value": ev.get('action',''), "inline": False},
+              {"name": "User", "value": user.get('login',''), "inline": False}
             ],
             "url": issue.get('html_url',''),
             "footer": {"text": os.environ.get('GITHUB_REPOSITORY','')}
@@ -147,7 +146,7 @@ jobs:
           ev = json.load(open(os.environ['GITHUB_EVENT_PATH']))
           disc = ev.get('discussion', {})
           data = [{
-            "title": "💬 Discussion",
+            "title": "<:infos:1034196978013319228> - Discussion",
             "description": disc.get('title',''),
             "color": 10181046,
             "author": {"name": os.environ.get('GITHUB_ACTOR',''), "url": f"https://github.com/{os.environ.get('GITHUB_ACTOR','')}", "icon_url": f"https://github.com/{os.environ.get('GITHUB_ACTOR','')}.png"},
@@ -183,12 +182,11 @@ jobs:
           issue = ev.get('issue', {})
           user = comment.get('user', {})
           data = [{
-            "title": f"💬 Comment on Issue #{issue.get('number','')}",
+            "title": f"💬 - Comment on Issue #{issue.get('number','')}",
             "description": comment.get('body',''),
             "color": 9807270,
             "author": {"name": user.get('login',''), "url": f"https://github.com/{user.get('login','')}", "icon_url": f"https://github.com/{user.get('login','')}.png"},
-            "thumbnail": {"url": f"https://github.com/{user.get('login','')}.png"},
-            "fields": [{"name": "User", "value": user.get('login',''), "inline": True}],
+            "fields": [{"name": "User", "value": user.get('login',''), "inline": False}],
             "url": comment.get('html_url',''),
             "footer": {"text": os.environ.get('GITHUB_REPOSITORY','')}
           }]
@@ -216,13 +214,13 @@ jobs:
           DISCORD_EMBEDS: |
             [
               {
-                "title": "📝 PR Review Comment",
+                "title": "💬 - PR Review Comment",
                 "description": "${{ github.event.comment.body }}",
                 "color": 16766720,
                 "author": { "name": "${{ github.event.comment.user.login }}", "url": "https://github.com/${{ github.event.comment.user.login }}", "icon_url": "https://github.com/${{ github.event.comment.user.login }}.png" },
                 "fields": [
-                  { "name": "PR", "value": "#${{ github.event.pull_request.number }}", "inline": true },
-                  { "name": "User", "value": "${{ github.event.comment.user.login }}", "inline": true }
+                  { "name": "PR", "value": "#${{ github.event.pull_request.number }}", "inline": False },
+                  { "name": "User", "value": "${{ github.event.comment.user.login }}", "inline": False }
                 ],
                 "url": "${{ github.event.comment.html_url }}",
                 "footer": { "text": "${{ github.repository }}" }
@@ -239,13 +237,13 @@ jobs:
           DISCORD_EMBEDS: |
             [
               {
-                "title": "💬 Discussion Comment",
+                "title": "💬 - Discussion Comment",
                 "description": "${{ github.event.comment.body }}",
                 "color": 3447003,
                 "author": { "name": "${{ github.event.comment.user.login }}", "url": "https://github.com/${{ github.event.comment.user.login }}", "icon_url": "https://github.com/${{ github.event.comment.user.login }}.png" },
                 "fields": [
                   { "name": "Discussion", "value": "${{ github.event.discussion.title }}", "inline": false },
-                  { "name": "User", "value": "${{ github.event.comment.user.login }}", "inline": true }
+                  { "name": "User", "value": "${{ github.event.comment.user.login }}", "inline": false }
                 ],
                 "url": "${{ github.event.comment.html_url }}",
                 "footer": { "text": "${{ github.repository }}" }
