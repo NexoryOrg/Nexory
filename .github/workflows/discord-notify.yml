@@ -24,50 +24,53 @@ jobs:
         shell: bash
         run: |
           python - <<'PY'
-          import json, os, subprocess
+          import json, os, requests
+
+          GITHUB_TOKEN = os.environ.get('GITHUB_TOKEN', '')
+          headers = {"Authorization": f"token {GITHUB_TOKEN}"}
 
           ev = json.load(open(os.environ['GITHUB_EVENT_PATH']))
-          commits = ev.get('commits', [])
+          repo = ev.get('repository', {})
+          repo_name = repo.get('full_name', '')
+          head = ev.get('head_commit', {})
 
-          added, removed, modified = set(), set(), set()
+          # Default values
+          added, removed, modified = [], [], []
           total_additions = 0
           total_deletions = 0
+          description = head.get('message', '')
 
-          for c in commits:
-              added.update(c.get("added") or [])
-              removed.update(c.get("removed") or [])
-              modified.update(c.get("modified") or [])
-              stats = c.get("stats") or {}
-              total_additions += stats.get("additions", 0)
-              total_deletions += stats.get("deletions", 0)
+          sha = head.get('id')
+          if sha:
+              url = f"https://api.github.com/repos/{repo_name}/commits/{sha}"
+              r = requests.get(url, headers=headers)
+              if r.ok:
+                  data = r.json()
+                  stats = data.get("stats", {})
+                  total_additions = stats.get("additions", 0)
+                  total_deletions = stats.get("deletions", 0)
+                  files = data.get("files", [])
 
-          try:
-              diff_output = subprocess.check_output(
-                  ["git", "diff", "--name-status", "HEAD~{}".format(len(commits)), "HEAD"],
-                  text=True
-              )
-              for line in diff_output.strip().split("\n"):
-                  if not line: continue
-                  status, file = line.split("\t", 1)
-                  if status == "A":
-                      added.add(file)
-                  elif status == "D":
-                      removed.add(file)
-                  else:
-                      modified.add(file)
-          except Exception:
-              pass
+                  for f in files:
+                      status = f.get("status")
+                      filename = f.get("filename")
+                      if status == "added":
+                          added.append(filename)
+                      elif status == "removed":
+                          removed.append(filename)
+                      else:
+                          modified.append(filename)
 
-          def format_file_list(files, limit=10):
-              files_list = list(files)[:limit]
-              formatted = "\n".join(f"`{f}`" for f in files_list)
+          def format_files(files, limit=10):
+              files_list = files[:limit]
+              out = "\n".join(f"`{f}`" for f in files_list)
               if len(files) > limit:
-                  formatted += f"\n+ `{len(files)-limit} more files`"
-              return formatted or "None"
+                  out += f"\n+ `{len(files)-limit} more files`"
+              return out or "None"
 
           data = [{
               "title": f"Push to {os.environ.get('GITHUB_REF_NAME','')}",
-              "description": f"Commits: {len(commits)}",
+              "description": f"{description}",
               "color": 3447003,
               "author": {
                   "name": os.environ.get('GITHUB_ACTOR',''),
@@ -75,9 +78,9 @@ jobs:
                   "icon_url": f"https://github.com/{os.environ.get('GITHUB_ACTOR','')}.png"
               },
               "fields": [
-                  {"name": "Changed Files", "value": format_file_list(modified), "inline": False},
-                  {"name": "Added Files", "value": format_file_list(added), "inline": True},
-                  {"name": "Removed Files", "value": format_file_list(removed), "inline": True},
+                  {"name": "Changed Files", "value": format_files(modified), "inline": False},
+                  {"name": "Added Files", "value": format_files(added), "inline": True},
+                  {"name": "Removed Files", "value": format_files(removed), "inline": True},
                   {"name": "Additions", "value": str(total_additions), "inline": True},
                   {"name": "Deletions", "value": str(total_deletions), "inline": True}
               ],
@@ -95,6 +98,7 @@ jobs:
         uses: Ilshidur/action-discord@0.4.0
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DISCORD_EMBEDS: ${{ steps.build_push.outputs.embeds }}
 
       - name: Build pull request embed
@@ -210,7 +214,7 @@ jobs:
           user = comment.get('user', {})
 
           data = [{
-              "title": f"Comment on Issue #{issue.get('number','')}",
+              "title": f"Comment on Issue #{issue.get('number','')} ",
               "description": comment.get('body',''),
               "color": 9807270,
               "author": {
