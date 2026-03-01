@@ -1,6 +1,4 @@
 .env
-logs/
 __pycache__/
 .vscode/
-.github/
-validate_yaml.py
+datein/__pycache__/
