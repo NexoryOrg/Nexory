@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [2026-03-01 18-11-27] [INFO    ] discord: Cog 'Dev' erfolgreich geladen.
 [2026-03-01 18-11-28] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: ecb5854c493d294dcd544db41227b427).
 [2026-03-01 18-11-28] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: ecb5854c493d294dcd544db41227b427).
@@ -110,3 +111,5 @@
 [2026-03-01 18-18-30] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
 [2026-03-01 18-18-30] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
 [2026-03-01 18-18-30] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+=======
+>>>>>>> 7b7dafc0e9906a1ec14b48f31e8c0e383583e1ae
