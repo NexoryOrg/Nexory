@@ -3,4 +3,3 @@ logs/
 __pycache__/
 .vscode/
 .github/
-validate_yaml.py
