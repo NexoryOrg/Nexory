@@ -67,6 +67,10 @@ class MainDatei(commands.Bot):
                     "guildID BIGINT, title VARCHAR(50), des LONGTEXT, date DATE, remindme BOOLEAN DEFAULT FALSE)"
                 )
                 print("Tabelle nexory_guild_tasks überprüft/erstellt")
+                await cur.execute(
+                    "CREATE TABLE IF NOT EXISTS nexory_guild_config (guildID BIGINT, reminde_channel BIGINT, mode TEXT)"
+                )
+                print("Tabelle nexory_guild_config überprüft/erstellt"  )
 
 
     async def on_ready(self):

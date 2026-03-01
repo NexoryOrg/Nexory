@@ -159,8 +159,8 @@ class TaskCalendar(commands.Cog):
             file = discord.File(fp=image_binary, filename="calendar.png")
             await interaction.response.send_message(
                 file=file,
-                content=f"📅 **{scope.title()} Kalender** – {calendar.month_name[month]} {year}\n"
-                        f"Nutzer: {interaction.user.mention}",
+                content=f"📅 **{scope.title()} Calendar** – {calendar.month_name[month]} {year}\n"
+                        f"User: {interaction.user.mention}",
             )
 
 async def setup(bot):

@@ -70,7 +70,7 @@ jobs:
 
           data = [{
               "title": f"Push to {os.environ.get('GITHUB_REF_NAME','')}",
-              "description": f"{description}",
+              "description": f"Comment (`{head.get('id','')}`):\n{head.get('message','')}",
               "color": 3447003,
               "author": {
                   "name": os.environ.get('GITHUB_ACTOR',''),
