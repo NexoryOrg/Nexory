@@ -1,7 +1,9 @@
 import discord
 from discord.ext import commands
 from PIL import Image, ImageDraw, ImageFont
+from discord import app_commands
 import calendar
+from typing import Literal
 from datetime import date
 import io
 
@@ -9,18 +11,39 @@ class TaskCalendar(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command()
-    async def kalender(self, ctx, scope: str = "user", month: int = None, year: int = None):
+    @app_commands.command(name="calendar", description="Generates a calendar with tasks for the specified month and year.")
+    @app_commands.describe(
+        scope="Choose whether to show tasks for the entire guild or just your own tasks.",
+        month="The month for which to generate the calendar (1-12). Defaults to the current month.",
+        year="The year for which to generate the calendar. Defaults to the current year.",
+        mode="Choose between light and dark mode for the calendar."
+    )
+    async def kalender(self, interaction: discord.Interaction, scope: Literal["guild", "user"] = "user", month: int = None, year: int = None, mode: Literal["light", "dark"] = "light"):
         today = date.today()
         month = month or today.month
         year = year or today.year
 
+        if mode == "dark":
+            bg_color = (28, 28, 30)
+            card_color = (44, 44, 46)
+            text_color = (240, 240, 245)
+            subtext_color = (160, 160, 170)
+        else:
+            bg_color = (242, 242, 247)
+            card_color = (255, 255, 255)
+            text_color = (20, 20, 25)
+            subtext_color = (120, 120, 130)
+
+
+        ios_red = (255, 59, 48)
+        ios_blue = (0, 122, 255)
+
         if scope.lower() == "guild":
             query = "SELECT title, date, remindme FROM nexory_guild_tasks WHERE date BETWEEN %s AND %s AND guildID=%s"
-            params = (date(year, month, 1), date(year, month, calendar.monthrange(year, month)[1]), ctx.guild.id)
+            params = (date(year, month, 1), date(year, month, calendar.monthrange(year, month)[1]), interaction.guild.id)
         else:
             query = "SELECT title, date, remindme FROM nexory_user_tasks WHERE date BETWEEN %s AND %s AND userID=%s"
-            params = (date(year, month, 1), date(year, month, calendar.monthrange(year, month)[1]), ctx.author.id)
+            params = (date(year, month, 1), date(year, month, calendar.monthrange(year, month)[1]), interaction.user.id)
 
         async with self.bot.pool.acquire() as conn:
             async with conn.cursor() as cur:
@@ -29,51 +52,116 @@ class TaskCalendar(commands.Cog):
 
         tasks_by_day = {}
         for title, task_date, remindme in rows:
-            day = task_date.day
-            tasks_by_day.setdefault(day, []).append((title, remindme))
+            tasks_by_day.setdefault(task_date.day, []).append((title, remindme))
 
-        width, height = 1400, 1000
-        img = Image.new("RGB", (width, height), "white")
+        width, height = 1600, 1100
+        img = Image.new("RGB", (width, height), bg_color)
         draw = ImageDraw.Draw(img)
 
-        font_title = ImageFont.truetype("arial.ttf", 60)
-        font_day = ImageFont.truetype("arial.ttf", 30)
-        font_task = ImageFont.truetype("arial.ttf", 20)
+        try:
+            font_title = ImageFont.truetype("arial.ttf", 70)
+            font_weekday = ImageFont.truetype("arial.ttf", 30)
+            font_day = ImageFont.truetype("arial.ttf", 34)
+            font_event = ImageFont.truetype("arial.ttf", 22)
+        except:
+            font_title = ImageFont.load_default()
+            font_weekday = ImageFont.load_default()
+            font_day = ImageFont.load_default()
+            font_event = ImageFont.load_default()
 
-        draw.text((width // 2, 50), f"{calendar.month_name[month]} {year}", fill="black", font=font_title, anchor="mm")
+        draw.text(
+            (width // 2, 80),
+            f"{calendar.month_name[month]} {year}",
+            fill=text_color,
+            font=font_title,
+            anchor="mm"
+        )
 
         cal = calendar.Calendar(firstweekday=0)
         month_days = cal.monthdayscalendar(year, month)
 
         cell_width = width // 7
-        cell_height = (height - 150) // len(month_days)
-        start_y = 150
+        cell_height = (height - 220) // len(month_days)
+        start_y = 160
+
+        weekdays = ["Mo", "Di", "Mi", "Do", "Fr", "Sa", "So"]
+        for i, name in enumerate(weekdays):
+            x = i * cell_width + cell_width // 2
+            color = ios_red if i >= 5 else subtext_color
+            draw.text((x, start_y - 35), name, fill=color, font=font_weekday, anchor="mm")
 
         for row_idx, week in enumerate(month_days):
             for col_idx, day in enumerate(week):
-                x1 = col_idx * cell_width
-                y1 = start_y + row_idx * cell_height
-                x2 = x1 + cell_width
-                y2 = y1 + cell_height
+                x1 = col_idx * cell_width + 10
+                y1 = start_y + row_idx * cell_height + 10
+                x2 = x1 + cell_width - 20
+                y2 = y1 + cell_height - 20
 
-                draw.rectangle([x1, y1, x2, y2], outline="black")
+                draw.rounded_rectangle(
+                    [x1, y1, x2, y2],
+                    radius=25,
+                    fill=card_color
+                )
 
-                if day != 0:
-                    draw.text((x1 + 10, y1 + 5), str(day), fill="black", font=font_day)
+                if day == 0:
+                    continue
 
-                    if day == today.day and month == today.month and year == today.year:
-                        draw.rectangle([x1, y1, x2, y2], outline="red", width=4)
+                day_x = x1 + 35
+                day_y = y1 + 35
 
-                    if day in tasks_by_day:
-                        for i, (task, remindme) in enumerate(tasks_by_day[day]):
-                            color = "blue" if not remindme else "red"
-                            draw.text((x1 + 10, y1 + 40 + i * 22), task[:20], fill=color, font=font_task)
+                if day == today.day and month == today.month and year == today.year:
+                    r = 22
+                    draw.ellipse(
+                        (day_x - r, day_y - r, day_x + r, day_y + r),
+                        fill=ios_red
+                    )
+                    draw.text((day_x, day_y), str(day), fill="white", font=font_day, anchor="mm")
+                else:
+                    color = ios_red if col_idx >= 5 else text_color
+                    draw.text((day_x, day_y), str(day), fill=color, font=font_day, anchor="mm")
+
+                if day in tasks_by_day:
+                    events = tasks_by_day[day]
+                    max_show = 1
+
+                    for i, (title, remindme) in enumerate(events[:max_show]):
+                        pill_color = ios_red if remindme else ios_blue
+                        pill_y = y1 + 70 + i * 35
+
+                        draw.rounded_rectangle(
+                            (x1 + 25, pill_y, x2 - 25, pill_y + 28),
+                            radius=14,
+                            fill=pill_color
+                        )
+
+                        draw.text(
+                            (x1 + 40, pill_y + 14),
+                            title[:18],
+                            fill="white",
+                            font=font_event,
+                            anchor="lm"
+                        )
+
+                    if len(events) > max_show:
+                        more_text = f"+{len(events)-max_show} weitere"
+                        draw.text(
+                            (x1 + 35, y1 + 75 + max_show * 35),
+                            more_text,
+                            fill=subtext_color,
+                            font=font_event,
+                            anchor="lm"
+                        )
 
         with io.BytesIO() as image_binary:
             img.save(image_binary, "PNG")
             image_binary.seek(0)
+
             file = discord.File(fp=image_binary, filename="calendar.png")
-            await ctx.send(file=file, content=f"**{scope.title()} Tasks Kalender** für {calendar.month_name[month]} {year}")
+            await interaction.response.send_message(
+                file=file,
+                content=f"📅 **{scope.title()} Kalender** – {calendar.month_name[month]} {year}\n"
+                        f"Nutzer: {interaction.user.mention}",
+            )
 
 async def setup(bot):
     await bot.add_cog(TaskCalendar(bot))
