@@ -51,7 +51,7 @@ jobs:
 
           data = [{
             "title": f"Push to {os.environ.get('GITHUB_REF_NAME','')}",
-            "description": f"Comment (`head.get('id','')`):\n{head.get('message','')}",
+            "description": f"Comment (`{head.get('id','')}`):\n{head.get('message','')}",
             "color": 3447003,
             "author": {
               "name": os.environ.get('GITHUB_ACTOR',''),
@@ -191,26 +191,44 @@ jobs:
       # ISSUE COMMENT
       # =========================
 
+      - name: Build issue comment embed
+        id: build_issue_comment
+        if: github.event_name == 'issue_comment'
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+
+          ev = json.load(open(os.environ['GITHUB_EVENT_PATH']))
+          comment = ev.get('comment', {})
+          issue = ev.get('issue', {})
+          user = comment.get('user', {})
+
+          data = [{
+            "title": f"Comment on Issue #{issue.get('number','')}",
+            "description": comment.get('body',''),
+            "color": 9807270,
+            "author": {
+              "name": user.get('login',''),
+              "url": f"https://github.com/{user.get('login','')}",
+              "icon_url": f"https://github.com/{user.get('login','')}.png"
+            },
+            "url": comment.get('html_url',''),
+            "footer": {"text": os.environ.get('GITHUB_REPOSITORY','')}
+          }]
+
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:
+              f.write('embeds<<EOF\n')
+              f.write(json.dumps(data))
+              f.write('\nEOF\n')
+          PY
+
       - name: Notify issue comment
         if: github.event_name == 'issue_comment'
         uses: Ilshidur/action-discord@0.4.0
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          DISCORD_EMBEDS: |
-            [
-              {
-                "title": "Comment on Issue",
-                "description": "${{ github.event.comment.body }}",
-                "color": 9807270,
-                "author": {
-                  "name": "${{ github.event.comment.user.login }}",
-                  "url": "https://github.com/${{ github.event.comment.user.login }}",
-                  "icon_url": "https://github.com/${{ github.event.comment.user.login }}.png"
-                },
-                "url": "${{ github.event.comment.html_url }}",
-                "footer": { "text": "${{ github.repository }}" }
-              }
-            ]
+          DISCORD_EMBEDS: ${{ steps.build_issue_comment.outputs.embeds }}
 
       # =========================
       # PR REVIEW COMMENT
