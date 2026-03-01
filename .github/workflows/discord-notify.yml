@@ -31,11 +31,10 @@ jobs:
           ev = json.load(open(os.environ['GITHUB_EVENT_PATH']))
           head = ev.get('head_commit', {})
           data = [{
-            "title": f"🚀 Push to {os.environ.get('GITHUB_REF_NAME','')}",
+            "title": f"<:settings:1034191404487954442> - Push to {os.environ.get('GITHUB_REF_NAME','')}",
             "description": f"Author: {os.environ.get('GITHUB_ACTOR','')}",
-            "color": 3447003,
+            "color": 255,
             "author": {"name": os.environ.get('GITHUB_ACTOR',''), "url": f"https://github.com/{os.environ.get('GITHUB_ACTOR','')}", "icon_url": f"https://github.com/{os.environ.get('GITHUB_ACTOR','')}.png"},
-            "thumbnail": {"url": f"https://github.com/{os.environ.get('GITHUB_ACTOR','')}.png"},
             "fields": [
               {"name": "Commit", "value": head.get('id','') , "inline": True},
               {"name": "Message", "value": head.get('message',''), "inline": False}
@@ -70,11 +69,10 @@ jobs:
           pr = ev.get('pull_request', {})
           user = pr.get('user', {})
           data = [{
-            "title": f"🛠 Pull Request #{ev.get('number','')}",
+            "title": f"<:check:1034554637845532692> - Pull Request #{ev.get('number','')}",
             "description": pr.get('title',''),
-            "color": 3066993,
+            "color": 32768,
             "author": {"name": user.get('login',''), "url": f"https://github.com/{user.get('login','')}", "icon_url": f"https://github.com/{user.get('login','')}.png"},
-            "thumbnail": {"url": f"https://github.com/{user.get('login','')}.png"},
             "fields": [
               {"name": "Action", "value": ev.get('action',''), "inline": True},
               {"name": "User", "value": user.get('login',''), "inline": True}
@@ -114,8 +112,8 @@ jobs:
             "color": 16711680,
             "author": {"name": user.get('login',''), "url": f"https://github.com/{user.get('login','')}", "icon_url": f"https://github.com/{user.get('login','')}.png"},
             "fields": [
-              {"name": "Action", "value": ev.get('action',''), "inline": False},
-              {"name": "User", "value": user.get('login',''), "inline": False}
+              {"name": "Action", "value": ev.get('action',''), "inline": true},
+              {"name": "User", "value": user.get('login',''), "inline": true}
             ],
             "url": issue.get('html_url',''),
             "footer": {"text": os.environ.get('GITHUB_REPOSITORY','')}
@@ -184,7 +182,7 @@ jobs:
           data = [{
             "title": f"💬 - Comment on Issue #{issue.get('number','')}",
             "description": comment.get('body',''),
-            "color": 9807270,
+            "color": 8421504,
             "author": {"name": user.get('login',''), "url": f"https://github.com/{user.get('login','')}", "icon_url": f"https://github.com/{user.get('login','')}.png"},
             "fields": [{"name": "User", "value": user.get('login',''), "inline": False}],
             "url": comment.get('html_url',''),
@@ -216,11 +214,11 @@ jobs:
               {
                 "title": "💬 - PR Review Comment",
                 "description": "${{ github.event.comment.body }}",
-                "color": 16766720,
+                "color": 8421504,
                 "author": { "name": "${{ github.event.comment.user.login }}", "url": "https://github.com/${{ github.event.comment.user.login }}", "icon_url": "https://github.com/${{ github.event.comment.user.login }}.png" },
                 "fields": [
-                  { "name": "PR", "value": "#${{ github.event.pull_request.number }}", "inline": False },
-                  { "name": "User", "value": "${{ github.event.comment.user.login }}", "inline": False }
+                  { "name": "PR", "value": "#${{ github.event.pull_request.number }}", "inline": true },
+                  { "name": "User", "value": "${{ github.event.comment.user.login }}", "inline": true }
                 ],
                 "url": "${{ github.event.comment.html_url }}",
                 "footer": { "text": "${{ github.repository }}" }
@@ -239,11 +237,11 @@ jobs:
               {
                 "title": "💬 - Discussion Comment",
                 "description": "${{ github.event.comment.body }}",
-                "color": 3447003,
+                "color": 8421504,
                 "author": { "name": "${{ github.event.comment.user.login }}", "url": "https://github.com/${{ github.event.comment.user.login }}", "icon_url": "https://github.com/${{ github.event.comment.user.login }}.png" },
                 "fields": [
-                  { "name": "Discussion", "value": "${{ github.event.discussion.title }}", "inline": false },
-                  { "name": "User", "value": "${{ github.event.comment.user.login }}", "inline": false }
+                  { "name": "Discussion", "value": "${{ github.event.discussion.title }}", "inline": true },
+                  { "name": "User", "value": "${{ github.event.comment.user.login }}", "inline": true }
                 ],
                 "url": "${{ github.event.comment.html_url }}",
                 "footer": { "text": "${{ github.repository }}" }
