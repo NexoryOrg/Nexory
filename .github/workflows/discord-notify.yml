@@ -50,8 +50,8 @@ jobs:
               file_list += f"\n+ {len(files)-10} more files"
 
           data = [{
-            "title": f"🚀 Push to {os.environ.get('GITHUB_REF_NAME','')}",
-            "description": head.get('message',''),
+            "title": f"Push to {os.environ.get('GITHUB_REF_NAME','')}",
+            "description": f"Comment (`head.get('id','')`):\n{head.get('message','')}",
             "color": 3447003,
             "author": {
               "name": os.environ.get('GITHUB_ACTOR',''),
@@ -59,9 +59,9 @@ jobs:
               "icon_url": f"https://github.com/{os.environ.get('GITHUB_ACTOR','')}.png"
             },
             "fields": [
-              {"name": "📂 Changed Files", "value": file_list or "None", "inline": False},
-              {"name": "➕ Additions", "value": str(additions), "inline": True},
-              {"name": "➖ Deletions", "value": str(deletions), "inline": True}
+              {"name": "Changed Files", "value": file_list or "None", "inline": False},
+              {"name": "Additions", "value": str(additions), "inline": True},
+              {"name": "Deletions", "value": str(deletions), "inline": True}
             ],
             "timestamp": head.get('timestamp',''),
             "footer": {"text": os.environ.get('GITHUB_REPOSITORY','')}
@@ -105,7 +105,7 @@ jobs:
               color = 9807270
 
           data = [{
-            "title": f"🔀 Pull Request #{pr.get('number')}",
+            "title": f"Pull Request #{pr.get('number')}",
             "description": pr.get('title',''),
             "color": color,
             "author": {
@@ -159,7 +159,7 @@ jobs:
               color = 9807270
 
           data = [{
-            "title": f"🐞 Issue #{issue.get('number')}",
+            "title": f"Issue #{issue.get('number')}",
             "description": issue.get('title',''),
             "color": color,
             "author": {
@@ -199,7 +199,7 @@ jobs:
           DISCORD_EMBEDS: |
             [
               {
-                "title": "💬 Comment on Issue",
+                "title": "Comment on Issue",
                 "description": "${{ github.event.comment.body }}",
                 "color": 9807270,
                 "author": {
@@ -224,7 +224,7 @@ jobs:
           DISCORD_EMBEDS: |
             [
               {
-                "title": "💬 PR Review Comment",
+                "title": "PR Review Comment",
                 "description": "${{ github.event.comment.body }}",
                 "color": 9807270,
                 "author": {
