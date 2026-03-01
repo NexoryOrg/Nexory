@@ -24,10 +24,9 @@ jobs:
         shell: bash
         run: |
           python - <<'PY'
-          import json, os
+          import json, os, subprocess
 
           ev = json.load(open(os.environ['GITHUB_EVENT_PATH']))
-          head = ev.get('head_commit', {})
           commits = ev.get('commits', [])
 
           added, removed, modified = set(), set(), set()
@@ -35,12 +34,29 @@ jobs:
           total_deletions = 0
 
           for c in commits:
-              added.update(c.get("added", []))
-              removed.update(c.get("removed", []))
-              modified.update(c.get("modified", []))
-              stats = c.get("stats", {})
+              added.update(c.get("added") or [])
+              removed.update(c.get("removed") or [])
+              modified.update(c.get("modified") or [])
+              stats = c.get("stats") or {}
               total_additions += stats.get("additions", 0)
               total_deletions += stats.get("deletions", 0)
+
+          try:
+              diff_output = subprocess.check_output(
+                  ["git", "diff", "--name-status", "HEAD~{}".format(len(commits)), "HEAD"],
+                  text=True
+              )
+              for line in diff_output.strip().split("\n"):
+                  if not line: continue
+                  status, file = line.split("\t", 1)
+                  if status == "A":
+                      added.add(file)
+                  elif status == "D":
+                      removed.add(file)
+                  else:
+                      modified.add(file)
+          except Exception:
+              pass
 
           def format_file_list(files, limit=10):
               files_list = list(files)[:limit]
@@ -49,13 +65,9 @@ jobs:
                   formatted += f"\n+ `{len(files)-limit} more files`"
               return formatted or "None"
 
-          added_list = format_file_list(added)
-          removed_list = format_file_list(removed)
-          modified_list = format_file_list(modified)
-
           data = [{
               "title": f"Push to {os.environ.get('GITHUB_REF_NAME','')}",
-              "description": f"Comment (`{head.get('id','')}`):\n{head.get('message','')}",
+              "description": f"Commits: {len(commits)}",
               "color": 3447003,
               "author": {
                   "name": os.environ.get('GITHUB_ACTOR',''),
@@ -63,11 +75,12 @@ jobs:
                   "icon_url": f"https://github.com/{os.environ.get('GITHUB_ACTOR','')}.png"
               },
               "fields": [
-                  {"name": "Changed Files", "value": modified_list, "inline": False},
-                  {"name": "Added Files", "value": added_list, "inline": True},
-                  {"name": "Removed Files", "value": removed_list, "inline": True}
+                  {"name": "Changed Files", "value": format_file_list(modified), "inline": False},
+                  {"name": "Added Files", "value": format_file_list(added), "inline": True},
+                  {"name": "Removed Files", "value": format_file_list(removed), "inline": True},
+                  {"name": "Additions", "value": str(total_additions), "inline": True},
+                  {"name": "Deletions", "value": str(total_deletions), "inline": True}
               ],
-              "timestamp": head.get('timestamp',''),
               "footer": {"text": os.environ.get('GITHUB_REPOSITORY','')}
           }]
 
