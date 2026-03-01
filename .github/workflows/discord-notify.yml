@@ -5,22 +5,23 @@ on:
     branches:
       - main
   pull_request:
-    types: [opened, closed, reopened, merged]
+    types: [opened, closed, reopened, edited]
   issues:
-    types: [opened, edited, closed, reopened, deleted]
-  discussion:
-    types: [created, edited, closed, reopened, deleted]
+    types: [opened, edited, closed, reopened]
   issue_comment:
     types: [created, edited, deleted]
   pull_request_review_comment:
-    types: [created, edited, deleted]
-  discussion_comment:
     types: [created, edited, deleted]
 
 jobs:
   notify:
     runs-on: ubuntu-latest
     steps:
+
+      # =========================
+      # PUSH
+      # =========================
+
       - name: Build push embed
         id: build_push
         if: github.event_name == 'push'
@@ -28,22 +29,45 @@ jobs:
         run: |
           python - <<'PY'
           import json, os
+
           ev = json.load(open(os.environ['GITHUB_EVENT_PATH']))
           head = ev.get('head_commit', {})
+          commits = ev.get('commits', [])
+
+          added, removed, modified = set(), set(), set()
+          additions = deletions = 0
+
+          for c in commits:
+              added.update(c.get("added", []))
+              removed.update(c.get("removed", []))
+              modified.update(c.get("modified", []))
+              additions += c.get("stats", {}).get("additions", 0)
+              deletions += c.get("stats", {}).get("deletions", 0)
+
+          files = list(added | removed | modified)
+          file_list = "\n".join(files[:10])
+          if len(files) > 10:
+              file_list += f"\n+ {len(files)-10} more files"
+
           data = [{
-            "title": f"<:settings:1034191404487954442> - Push to {os.environ.get('GITHUB_REF_NAME','')}",
-            "description": f"Author: {os.environ.get('GITHUB_ACTOR','')}",
-            "color": 255,
-            "author": {"name": os.environ.get('GITHUB_ACTOR',''), "url": f"https://github.com/{os.environ.get('GITHUB_ACTOR','')}", "icon_url": f"https://github.com/{os.environ.get('GITHUB_ACTOR','')}.png"},
+            "title": f"🚀 Push to {os.environ.get('GITHUB_REF_NAME','')}",
+            "description": head.get('message',''),
+            "color": 3447003,
+            "author": {
+              "name": os.environ.get('GITHUB_ACTOR',''),
+              "url": f"https://github.com/{os.environ.get('GITHUB_ACTOR','')}",
+              "icon_url": f"https://github.com/{os.environ.get('GITHUB_ACTOR','')}.png"
+            },
             "fields": [
-              {"name": "Commit", "value": head.get('id','') , "inline": True},
-              {"name": "Message", "value": head.get('message',''), "inline": False}
+              {"name": "📂 Changed Files", "value": file_list or "None", "inline": False},
+              {"name": "➕ Additions", "value": str(additions), "inline": True},
+              {"name": "➖ Deletions", "value": str(deletions), "inline": True}
             ],
             "timestamp": head.get('timestamp',''),
             "footer": {"text": os.environ.get('GITHUB_REPOSITORY','')}
           }]
-          out = os.environ['GITHUB_OUTPUT']
-          with open(out, 'a') as f:
+
+          with open(os.environ['GITHUB_OUTPUT'], 'a') as f:
               f.write('embeds<<EOF\n')
               f.write(json.dumps(data))
               f.write('\nEOF\n')
@@ -55,8 +79,10 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           DISCORD_EMBEDS: ${{ steps.build_push.outputs.embeds }}
-        with:
-          args: ""
+
+      # =========================
+      # PULL REQUEST
+      # =========================
 
       - name: Build pull request embed
         id: build_pr
@@ -65,36 +91,52 @@ jobs:
         run: |
           python - <<'PY'
           import json, os
+
           ev = json.load(open(os.environ['GITHUB_EVENT_PATH']))
           pr = ev.get('pull_request', {})
           user = pr.get('user', {})
+          action = ev.get('action')
+
+          if action in ["opened", "reopened"]:
+              color = 3066993
+          elif action == "closed":
+              color = 15158332
+          else:
+              color = 9807270
+
           data = [{
-            "title": f"<:check:1034554637845532692> - Pull Request #{ev.get('number','')}",
+            "title": f"🔀 Pull Request #{pr.get('number')}",
             "description": pr.get('title',''),
-            "color": 32768,
-            "author": {"name": user.get('login',''), "url": f"https://github.com/{user.get('login','')}", "icon_url": f"https://github.com/{user.get('login','')}.png"},
+            "color": color,
+            "author": {
+              "name": user.get('login',''),
+              "url": f"https://github.com/{user.get('login','')}",
+              "icon_url": f"https://github.com/{user.get('login','')}.png"
+            },
             "fields": [
-              {"name": "Action", "value": ev.get('action',''), "inline": True},
-              {"name": "User", "value": user.get('login',''), "inline": True}
+              {"name": "Action", "value": action, "inline": True},
+              {"name": "Branch", "value": pr.get("head", {}).get("ref",""), "inline": True}
             ],
             "url": pr.get('html_url',''),
             "footer": {"text": os.environ.get('GITHUB_REPOSITORY','')}
           }]
-          out = os.environ['GITHUB_OUTPUT']
-          with open(out,'a') as f:
+
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:
               f.write('embeds<<EOF\n')
               f.write(json.dumps(data))
               f.write('\nEOF\n')
           PY
-      
+
       - name: Notify pull request
-        uses: Ilshidur/action-discord@0.4.0
         if: github.event_name == 'pull_request'
+        uses: Ilshidur/action-discord@0.4.0
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           DISCORD_EMBEDS: ${{ steps.build_pr.outputs.embeds }}
-        with:
-          args: ""
+
+      # =========================
+      # ISSUES
+      # =========================
 
       - name: Build issue embed
         id: build_issue
@@ -103,23 +145,36 @@ jobs:
         run: |
           python - <<'PY'
           import json, os
+
           ev = json.load(open(os.environ['GITHUB_EVENT_PATH']))
           issue = ev.get('issue', {})
           user = issue.get('user', {})
+          action = ev.get('action')
+
+          if action in ["opened", "reopened"]:
+              color = 3066993
+          elif action == "closed":
+              color = 15158332
+          else:
+              color = 9807270
+
           data = [{
-            "title": f"<:x_:1034902940017774662> - Issue #{issue.get('number','')}",
-            "description": f"*+Title:**\n{issue.get('title','')}",
-            "color": 16711680,
-            "author": {"name": user.get('login',''), "url": f"https://github.com/{user.get('login','')}", "icon_url": f"https://github.com/{user.get('login','')}.png"},
+            "title": f"🐞 Issue #{issue.get('number')}",
+            "description": issue.get('title',''),
+            "color": color,
+            "author": {
+              "name": user.get('login',''),
+              "url": f"https://github.com/{user.get('login','')}",
+              "icon_url": f"https://github.com/{user.get('login','')}.png"
+            },
             "fields": [
-              {"name": "Action", "value": ev.get('action',''), "inline": true},
-              {"name": "User", "value": user.get('login',''), "inline": true}
+              {"name": "Action", "value": action, "inline": True}
             ],
             "url": issue.get('html_url',''),
             "footer": {"text": os.environ.get('GITHUB_REPOSITORY','')}
           }]
-          out = os.environ['GITHUB_OUTPUT']
-          with open(out,'a') as f:
+
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:
               f.write('embeds<<EOF\n')
               f.write(json.dumps(data))
               f.write('\nEOF\n')
@@ -131,78 +186,35 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           DISCORD_EMBEDS: ${{ steps.build_issue.outputs.embeds }}
-        with:
-          args: ""
 
-      - name: Build discussion embed
-        id: build_discussion
-        if: github.event_name == 'discussion'
-        shell: bash
-        run: |
-          python - <<'PY'
-          import json, os
-          ev = json.load(open(os.environ['GITHUB_EVENT_PATH']))
-          disc = ev.get('discussion', {})
-          data = [{
-            "title": "<:infos:1034196978013319228> - Discussion",
-            "description": disc.get('title',''),
-            "color": 10181046,
-            "author": {"name": os.environ.get('GITHUB_ACTOR',''), "url": f"https://github.com/{os.environ.get('GITHUB_ACTOR','')}", "icon_url": f"https://github.com/{os.environ.get('GITHUB_ACTOR','')}.png"},
-            "fields": [{"name": "Action", "value": ev.get('action',''), "inline": True}],
-            "url": disc.get('html_url',''),
-            "footer": {"text": os.environ.get('GITHUB_REPOSITORY','')}
-          }]
-          out = os.environ['GITHUB_OUTPUT']
-          with open(out,'a') as f:
-              f.write('embeds<<EOF\n')
-              f.write(json.dumps(data))
-              f.write('\nEOF\n')
-          PY
-
-      - name: Notify discussion
-        if: github.event_name == 'discussion'
-        uses: Ilshidur/action-discord@0.4.0
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          DISCORD_EMBEDS: ${{ steps.build_discussion.outputs.embeds }}
-        with:
-          args: ""
-
-      - name: Build issue comment embed
-        id: build_issue_comment
-        if: github.event_name == 'issue_comment'
-        shell: bash
-        run: |
-          python - <<'PY'
-          import json, os
-          ev = json.load(open(os.environ['GITHUB_EVENT_PATH']))
-          comment = ev.get('comment', {})
-          issue = ev.get('issue', {})
-          user = comment.get('user', {})
-          data = [{
-            "title": f"💬 - Comment on Issue #{issue.get('number','')}",
-            "description": comment.get('body',''),
-            "color": 8421504,
-            "author": {"name": user.get('login',''), "url": f"https://github.com/{user.get('login','')}", "icon_url": f"https://github.com/{user.get('login','')}.png"},
-            "fields": [{"name": "User", "value": user.get('login',''), "inline": False}],
-            "url": comment.get('html_url',''),
-            "footer": {"text": os.environ.get('GITHUB_REPOSITORY','')}
-          }]
-          out = os.environ['GITHUB_OUTPUT']
-          with open(out,'a') as f:
-              f.write('embeds<<EOF\n')
-              f.write(json.dumps(data))
-              f.write('\nEOF\n')
-          PY
+      # =========================
+      # ISSUE COMMENT
+      # =========================
 
       - name: Notify issue comment
         if: github.event_name == 'issue_comment'
         uses: Ilshidur/action-discord@0.4.0
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          DISCORD_EMBEDS: ${{ steps.build_issue_comment.outputs.embeds }}
-        with:
-          args: ""
+          DISCORD_EMBEDS: |
+            [
+              {
+                "title": "💬 Comment on Issue",
+                "description": "${{ github.event.comment.body }}",
+                "color": 9807270,
+                "author": {
+                  "name": "${{ github.event.comment.user.login }}",
+                  "url": "https://github.com/${{ github.event.comment.user.login }}",
+                  "icon_url": "https://github.com/${{ github.event.comment.user.login }}.png"
+                },
+                "url": "${{ github.event.comment.html_url }}",
+                "footer": { "text": "${{ github.repository }}" }
+              }
+            ]
+
+      # =========================
+      # PR REVIEW COMMENT
+      # =========================
 
       - name: Notify PR review comment
         if: github.event_name == 'pull_request_review_comment'
@@ -212,40 +224,15 @@ jobs:
           DISCORD_EMBEDS: |
             [
               {
-                "title": "💬 - PR Review Comment",
+                "title": "💬 PR Review Comment",
                 "description": "${{ github.event.comment.body }}",
-                "color": 8421504,
-                "author": { "name": "${{ github.event.comment.user.login }}", "url": "https://github.com/${{ github.event.comment.user.login }}", "icon_url": "https://github.com/${{ github.event.comment.user.login }}.png" },
-                "fields": [
-                  { "name": "PR", "value": "#${{ github.event.pull_request.number }}", "inline": true },
-                  { "name": "User", "value": "${{ github.event.comment.user.login }}", "inline": true }
-                ],
+                "color": 9807270,
+                "author": {
+                  "name": "${{ github.event.comment.user.login }}",
+                  "url": "https://github.com/${{ github.event.comment.user.login }}",
+                  "icon_url": "https://github.com/${{ github.event.comment.user.login }}.png"
+                },
                 "url": "${{ github.event.comment.html_url }}",
                 "footer": { "text": "${{ github.repository }}" }
               }
             ]
-        with:
-          args: ""
-
-      - name: Notify discussion comment
-        if: github.event_name == 'discussion_comment'
-        uses: Ilshidur/action-discord@0.4.0
-        env:
-          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          DISCORD_EMBEDS: |
-            [
-              {
-                "title": "💬 - Discussion Comment",
-                "description": "${{ github.event.comment.body }}",
-                "color": 8421504,
-                "author": { "name": "${{ github.event.comment.user.login }}", "url": "https://github.com/${{ github.event.comment.user.login }}", "icon_url": "https://github.com/${{ github.event.comment.user.login }}.png" },
-                "fields": [
-                  { "name": "Discussion", "value": "${{ github.event.discussion.title }}", "inline": true },
-                  { "name": "User", "value": "${{ github.event.comment.user.login }}", "inline": true }
-                ],
-                "url": "${{ github.event.comment.html_url }}",
-                "footer": { "text": "${{ github.repository }}" }
-              }
-            ]
-        with:
-          args: ""
