@@ -44,14 +44,21 @@ jobs:
               additions += c.get("stats", {}).get("additions", 0)
               deletions += c.get("stats", {}).get("deletions", 0)
 
-          files = list(added | removed | modified)
-          file_list = "\n".join(files[:10])
-          if len(files) > 10:
-              file_list += f"\n+ {len(files)-10} more files"
+          # Format file lists with backticks
+          def format_file_list(files, limit=10):
+              files_list = list(files)[:limit]
+              formatted = "\n".join(f"`{f}`" for f in files_list)
+              if len(files) > limit:
+                  formatted += f"\n+ `{len(files)-limit} more files`"
+              return formatted or "None"
+
+          added_list = format_file_list(added) if added else "None"
+          removed_list = format_file_list(removed) if removed else "None"
+          modified_list = format_file_list(modified) if modified else "None"
 
           data = [{
             "title": f"Push to {os.environ.get('GITHUB_REF_NAME','')}",
-            "description": f"Comment (`head.get('id','')`):\n{head.get('message','')}",
+            "description": f"Comment (`{head.get('id','')}`):\n{head.get('message','')}",
             "color": 3447003,
             "author": {
               "name": os.environ.get('GITHUB_ACTOR',''),
@@ -59,9 +66,9 @@ jobs:
               "icon_url": f"https://github.com/{os.environ.get('GITHUB_ACTOR','')}.png"
             },
             "fields": [
-              {"name": "Changed Files", "value": file_list or "None", "inline": False},
-              {"name": "Additions", "value": str(additions), "inline": True},
-              {"name": "Deletions", "value": str(deletions), "inline": True}
+              {"name": "Changed Files", "value": modified_list, "inline": False},
+              {"name": "Additions", "value": added_list, "inline": True},
+              {"name": "Deletions", "value": removed_list, "inline": True}
             ],
             "timestamp": head.get('timestamp',''),
             "footer": {"text": os.environ.get('GITHUB_REPOSITORY','')}
@@ -191,26 +198,44 @@ jobs:
       # ISSUE COMMENT
       # =========================
 
+      - name: Build issue comment embed
+        id: build_issue_comment
+        if: github.event_name == 'issue_comment'
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json, os
+
+          ev = json.load(open(os.environ['GITHUB_EVENT_PATH']))
+          comment = ev.get('comment', {})
+          issue = ev.get('issue', {})
+          user = comment.get('user', {})
+
+          data = [{
+            "title": f"Comment on Issue #{issue.get('number','')}",
+            "description": comment.get('body',''),
+            "color": 9807270,
+            "author": {
+              "name": user.get('login',''),
+              "url": f"https://github.com/{user.get('login','')}",
+              "icon_url": f"https://github.com/{user.get('login','')}.png"
+            },
+            "url": comment.get('html_url',''),
+            "footer": {"text": os.environ.get('GITHUB_REPOSITORY','')}
+          }]
+
+          with open(os.environ['GITHUB_OUTPUT'],'a') as f:
+              f.write('embeds<<EOF\n')
+              f.write(json.dumps(data))
+              f.write('\nEOF\n')
+          PY
+
       - name: Notify issue comment
         if: github.event_name == 'issue_comment'
         uses: Ilshidur/action-discord@0.4.0
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
-          DISCORD_EMBEDS: |
-            [
-              {
-                "title": "Comment on Issue",
-                "description": "${{ github.event.comment.body }}",
-                "color": 9807270,
-                "author": {
-                  "name": "${{ github.event.comment.user.login }}",
-                  "url": "https://github.com/${{ github.event.comment.user.login }}",
-                  "icon_url": "https://github.com/${{ github.event.comment.user.login }}.png"
-                },
-                "url": "${{ github.event.comment.html_url }}",
-                "footer": { "text": "${{ github.repository }}" }
-              }
-            ]
+          DISCORD_EMBEDS: ${{ steps.build_issue_comment.outputs.embeds }}
 
       # =========================
       # PR REVIEW COMMENT
