@@ -27,14 +27,14 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           DISCORD_EMBEDS: ${{ toJson([{
-            title: "🚀 Push to ${{ github.ref_name }}",
-            description: "Author: ${{ github.actor }}",
+            title: '🚀 Push to ' + github.ref_name,
+            description: 'Author: ' + github.actor,
             color: 3447003,
             fields: [
-              { name: "Commit", value: "${{ github.event.head_commit.id }}", inline: true },
-              { name: "Message", value: "${{ github.event.head_commit.message }}", inline: false }
+              { name: 'Commit', value: github.event.head_commit.id, inline: true },
+              { name: 'Message', value: github.event.head_commit.message, inline: false }
             ],
-            timestamp: "${{ github.event.head_commit.timestamp }}"
+            timestamp: github.event.head_commit.timestamp
           }]) }}
         with:
           args: ""
@@ -45,14 +45,14 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           DISCORD_EMBEDS: ${{ toJson([{
-            title: "🛠 Pull Request #${{ github.event.number }}",
-            description: "${{ github.event.pull_request.title }}",
+            title: '🛠 Pull Request #' + github.event.number,
+            description: github.event.pull_request.title,
             color: 3066993,
             fields: [
-              { name: "Action", value: "${{ github.event.action }}", inline: true },
-              { name: "User", value: "${{ github.event.pull_request.user.login }}", inline: true }
+              { name: 'Action', value: github.event.action, inline: true },
+              { name: 'User', value: github.event.pull_request.user.login, inline: true }
             ],
-            url: "${{ github.event.pull_request.html_url }}"
+            url: github.event.pull_request.html_url
           }]) }}
         with:
           args: ""
@@ -63,14 +63,14 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           DISCORD_EMBEDS: ${{ toJson([{
-            title: "🐛 Issue #${{ github.event.issue.number }}",
-            description: "${{ github.event.issue.title }}",
+            title: '🐛 Issue #' + github.event.issue.number,
+            description: github.event.issue.title,
             color: 15105570,
             fields: [
-              { name: "Action", value: "${{ github.event.issue.action }}", inline: true },
-              { name: "User", value: "${{ github.event.issue.user.login }}", inline: true }
+              { name: 'Action', value: github.event.issue.action, inline: true },
+              { name: 'User', value: github.event.issue.user.login, inline: true }
             ],
-            url: "${{ github.event.issue.html_url }}"
+            url: github.event.issue.html_url
           }]) }}
         with:
           args: ""
@@ -81,13 +81,13 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           DISCORD_EMBEDS: ${{ toJson([{
-            title: "💬 Discussion",
-            description: "${{ github.event.discussion.title }}",
+            title: '💬 Discussion',
+            description: github.event.discussion.title,
             color: 10181046,
             fields: [
-              { name: "Action", value: "${{ github.event.action }}", inline: true }
+              { name: 'Action', value: github.event.action, inline: true }
             ],
-            url: "${{ github.event.discussion.html_url }}"
+            url: github.event.discussion.html_url
           }]) }}
         with:
           args: ""
@@ -98,13 +98,13 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           DISCORD_EMBEDS: ${{ toJson([{
-            title: "💬 Comment on Issue #${{ github.event.issue.number }}",
-            description: "${{ github.event.comment.body }}",
+            title: '💬 Comment on Issue #' + github.event.issue.number,
+            description: github.event.comment.body,
             color: 9807270,
             fields: [
-              { name: "User", value: "${{ github.event.comment.user.login }}", inline: true }
+              { name: 'User', value: github.event.comment.user.login, inline: true }
             ],
-            url: "${{ github.event.comment.html_url }}"
+            url: github.event.comment.html_url
           }]) }}
         with:
           args: ""
@@ -115,14 +115,14 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           DISCORD_EMBEDS: ${{ toJson([{
-            title: "📝 PR Review Comment",
-            description: "${{ github.event.comment.body }}",
+            title: '📝 PR Review Comment',
+            description: github.event.comment.body,
             color: 16766720,
             fields: [
-              { name: "PR", value: "#${{ github.event.pull_request.number }}", inline: true },
-              { name: "User", value: "${{ github.event.comment.user.login }}", inline: true }
+              { name: 'PR', value: '#' + github.event.pull_request.number, inline: true },
+              { name: 'User', value: github.event.comment.user.login, inline: true }
             ],
-            url: "${{ github.event.comment.html_url }}"
+            url: github.event.comment.html_url
           }]) }}
         with:
           args: ""
@@ -133,14 +133,14 @@ jobs:
         env:
           DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
           DISCORD_EMBEDS: ${{ toJson([{
-            title: "💬 Discussion Comment",
-            description: "${{ github.event.comment.body }}",
+            title: '💬 Discussion Comment',
+            description: github.event.comment.body,
             color: 3447003,
             fields: [
-              { name: "Discussion", value: "${{ github.event.discussion.title }}", inline: false },
-              { name: "User", value: "${{ github.event.comment.user.login }}", inline: true }
+              { name: 'Discussion', value: github.event.discussion.title, inline: false },
+              { name: 'User', value: github.event.comment.user.login, inline: true }
             ],
-            url: "${{ github.event.comment.html_url }}"
+            url: github.event.comment.html_url
           }]) }}
         with:
           args: ""
