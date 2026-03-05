@@ -82,3 +82,552 @@
 [2026-03-01 20-08-30] [INFO    ] discord: Reloaded `setup.py` | Ausgeführt von luca_nexory(714361420409733171)
 [2026-03-01 20-08-30] [INFO    ] discord: Reloaded `setup.py` | Ausgeführt von luca_nexory(714361420409733171)
 [2026-03-01 20-08-30] [INFO    ] discord: Reloaded `setup.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-08-31] [INFO    ] discord: Cog 'Dev' erfolgreich geladen.
+[2026-03-05 21-08-33] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: ad1549426cf7db5eabc183a779608299).
+[2026-03-05 21-08-33] [INFO    ] discord.gateway: Shard ID None has connected to Gateway (Session ID: ad1549426cf7db5eabc183a779608299).
+[2026-03-05 21-08-35] [INFO    ] discord: Status-Task startet...
+[2026-03-05 21-08-35] [INFO    ] discord: Status-Task startet...
+[2026-03-05 21-08-35] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-08-35] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-08-35] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-03-05 21-08-35] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-03-05 21-11-19] [INFO    ] discord: Reloaded `setup.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-11-19] [INFO    ] discord: Reloaded `setup.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-12-59] [INFO    ] discord: Reloaded `calendar.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-12-59] [INFO    ] discord: Reloaded `calendar.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-17-01] [INFO    ] discord: Reloaded `calendar.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-17-01] [INFO    ] discord: Reloaded `calendar.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-17-04] [INFO    ] discord: Es wurden 3 Befehle synchronisiert. | Ausgeführt von luca_nexory
+[2026-03-05 21-17-04] [INFO    ] discord: Es wurden 3 Befehle synchronisiert. | Ausgeführt von luca_nexory
+[2026-03-05 21-22-10] [INFO    ] discord: Reloaded `calendar.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-22-10] [INFO    ] discord: Reloaded `calendar.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-23-34] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-23-34] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-23-34] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-23-34] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-23-34] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-23-34] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-24-55] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-24-55] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-24-55] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-24-55] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-24-55] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-24-55] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-24-55] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-24-55] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-25-18] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-25-18] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-25-18] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-25-18] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-25-18] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-25-18] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-25-18] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-25-18] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-25-18] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-25-18] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-26-00] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-26-00] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-26-00] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-26-00] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-26-00] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-26-00] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-26-00] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-26-00] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-26-00] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-26-00] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-26-00] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-26-00] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-27-07] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-27-07] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-27-07] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-27-07] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-27-07] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-27-07] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-27-07] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-27-07] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-27-07] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-27-07] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-27-07] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-27-07] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-27-07] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-27-07] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-27-07] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-27-07] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-27-07] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-27-07] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-27-07] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-27-07] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-27-07] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-27-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-27-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-27-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-27-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-27-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-27-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-27-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-27-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-27-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-27-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-27-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-27-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-27-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-27-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-27-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-27-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-31-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-31-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-31-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-31-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-31-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-31-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-31-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-31-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-31-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-31-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-31-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-31-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-31-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-31-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-31-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-31-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-31-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-31-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-32-17] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-32-17] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-32-17] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-32-17] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-32-17] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-32-17] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-32-17] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-32-17] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-32-17] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-32-17] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-32-17] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-32-17] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-32-17] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-32-17] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-32-17] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-32-17] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-32-17] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-32-17] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-32-17] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-32-17] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-32-27] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-32-27] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-32-27] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-32-27] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-32-27] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-32-27] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-32-27] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-32-27] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-32-27] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-32-27] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-32-27] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-32-27] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-32-27] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-32-27] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-32-27] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-32-27] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-32-27] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-32-27] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-32-27] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-32-27] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-32-27] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-32-27] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-32-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-27] [WARNING ] discord: Konnte Reminder-DM an 714361420409733171 nicht senden.
+[2026-03-05 21-33-31] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-31] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-31] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-31] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-31] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-31] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-31] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-31] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-31] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-31] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-31] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-31] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-31] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-31] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-31] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-31] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-31] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-31] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-31] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-31] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-31] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-31] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-31] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-31] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-39] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-39] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-39] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-39] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-39] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-39] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-39] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-39] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-39] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-39] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-39] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-39] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-39] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-39] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-39] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-39] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-39] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-39] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-39] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-39] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-39] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-39] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-39] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-39] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-39] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-39] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-49] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-49] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-49] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-49] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-49] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-49] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-49] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-49] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-49] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-49] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-49] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-49] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-49] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-49] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-33-49] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-49] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-49] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-49] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-49] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-49] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-49] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-49] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-49] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-49] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-49] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-49] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-49] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-33-49] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-38-35] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-03-05 21-38-35] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-03-05 21-38-35] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-03-05 21-38-35] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-03-05 21-38-35] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-03-05 21-38-35] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-03-05 21-38-35] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-03-05 21-38-35] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-03-05 21-38-35] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-03-05 21-38-35] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-03-05 21-38-35] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-03-05 21-38-35] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-03-05 21-38-35] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-03-05 21-38-35] [INFO    ] discord: Status erfolgreich gesetzt.
+[2026-03-05 21-40-36] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-40-36] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-40-36] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-40-36] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-40-36] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-40-36] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-40-36] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-40-36] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-40-36] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-40-36] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-40-36] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-40-36] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-40-36] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-40-36] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-40-36] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-40-36] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-40-36] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-40-36] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-40-36] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-40-36] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-40-36] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-40-36] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-40-36] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-40-36] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-40-36] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-40-36] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-40-36] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-40-36] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-40-36] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-40-36] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-43-16] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-43-16] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-43-16] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-43-16] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-43-16] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-43-16] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-43-16] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-43-16] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-43-16] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-43-16] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-43-16] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-43-16] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-43-16] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-43-16] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-43-16] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-43-16] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-43-16] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-43-16] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-43-16] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-43-16] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-43-16] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-43-16] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-43-16] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-43-16] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-43-16] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-43-16] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-43-16] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-43-16] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-43-16] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-43-16] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-43-16] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-43-16] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-46-17] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-17] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-17] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-17] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-17] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-17] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-17] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-17] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-17] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-17] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-17] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-17] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-17] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-17] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-17] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-17] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-45] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-46-45] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-46-45] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-46-45] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-46-45] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-46-45] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-46-45] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-46-45] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-46-45] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-46-45] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-46-45] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-46-45] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-46-45] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-46-45] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-46-45] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-46-45] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-46-45] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-46-45] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-46-45] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-46-45] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-46-45] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-46-45] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-46-45] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-46-45] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-46-45] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-46-45] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-46-45] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-46-45] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-46-45] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-46-45] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-46-45] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-46-45] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-46-45] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-46-45] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-46-45] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-45] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-45] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-45] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-45] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-45] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-45] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-45] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-45] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-45] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-45] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-45] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-45] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-45] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-45] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-45] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-46-45] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-47-24] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-47-24] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-47-24] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-47-24] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-47-24] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-47-24] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-47-24] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-47-24] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-47-24] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-47-24] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-47-24] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-47-24] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-47-24] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-47-24] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-47-24] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-47-24] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-47-24] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-47-24] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-47-24] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-47-24] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-47-24] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-47-24] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-47-24] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-47-24] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-47-24] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-47-24] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-47-24] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-47-24] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-47-24] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-47-24] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-47-24] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-47-24] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-47-24] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-47-24] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-47-24] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-47-24] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-47-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-47-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-47-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-47-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-47-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-47-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-47-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-47-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-47-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-47-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-47-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-47-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-47-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-47-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-47-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-47-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-47-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-47-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-48-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-48-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-48-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-48-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-48-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-48-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-48-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-48-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-48-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-48-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-48-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-48-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-48-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-48-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-48-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-48-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-48-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-48-24] [ERROR   ] discord: Fehler in reminder_loop: Expected datetime.datetime or None received date instead
+[2026-03-05 21-48-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-48-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-48-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-48-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-48-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-48-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-48-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-48-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-48-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-48-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-48-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-48-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-48-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-48-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-48-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-48-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-48-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-48-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-48-56] [INFO    ] discord: Reloaded `tasks.py` | Ausgeführt von luca_nexory(714361420409733171)
+[2026-03-05 21-48-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-48-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-48-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-48-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-48-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-48-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-48-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-48-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-48-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-48-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-48-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-48-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-48-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-48-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-48-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-48-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-48-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-48-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen
+[2026-03-05 21-48-56] [INFO    ] discord: Reminder loop startet... auf Aufgaben prüfen

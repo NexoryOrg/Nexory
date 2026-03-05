@@ -572,12 +572,9 @@ class tasks(commands.Cog):
             async with self.bot.pool.acquire() as conn:
                 async with conn.cursor(aiomysql.DictCursor) as cur:
 
-                    # =========================
-                    # USER TASKS (DM Reminder)
-                    # =========================
                     await cur.execute(
-                        "SELECT userID, title, des FROM nexory_user_tasks "
-                        "WHERE remindme=TRUE AND date=%s",
+                        "SELECT userID, title, des, date FROM nexory_user_tasks "
+                        "WHERE remindme=TRUE AND date<=%s",
                         (today,)
                     )
                     user_rows = await cur.fetchall()
@@ -585,65 +582,72 @@ class tasks(commands.Cog):
                     for row in user_rows:
                         user = self.bot.get_user(row["userID"])
                         if user:
+                            embed = discord.Embed(
+                                title=f"`🔔` Task: {row['title']}",
+                                description=row["des"],
+                                color=discord.Color.blurple(),
+                                timestamp=datetime.combine(row["date"], datetime.min.time())
+                            )
+                            embed.add_field(name="Date", value=str(row["date"]), inline=False)
+                            embed.set_footer(text="Your Task Reminder")
                             try:
-                                await user.send(
-                                    f"🔔 **Erinnerung:** Deine Aufgabe **{row['title']}** ist fällig.\n"
-                                    f"{row['des']}"
-                                )
+                                await user.send(embed=embed)
                             except Exception:
-                                logger.warning(
-                                    f"Konnte Reminder-DM an {row['userID']} nicht senden."
-                                )
+                                logger.warning(f"Konnte Reminder-DM an {row['userID']} nicht senden.")
 
                     if user_rows:
                         await cur.execute(
-                            "DELETE FROM nexory_user_tasks "
-                            "WHERE remindme=TRUE AND date=%s",
+                            "DELETE FROM nexory_user_tasks WHERE remindme=TRUE AND date<=%s",
                             (today,)
                         )
 
-                    # =========================
-                    # GUILD TASKS (ab 10 Uhr)
-                    # =========================
-                    if now.hour >= 10:
+                    await cur.execute(
+                        "SELECT guildID, title, des, date FROM nexory_guild_tasks "
+                        "WHERE remindme=TRUE AND date<=%s",
+                        (today,)
+                    )
+                    guild_rows = await cur.fetchall()
+
+                    for row in guild_rows:
+                        guild = self.bot.get_guild(row["guildID"])
+                        if not guild:
+                            continue
+
                         await cur.execute(
-                            "SELECT guildID, title, des FROM nexory_guild_tasks "
-                            "WHERE remindme=TRUE AND date=%s",
+                            "SELECT reminde_channel FROM nexory_guild_config WHERE guildID=%s",
+                            (row["guildID"],)
+                        )
+                        config = await cur.fetchone()
+                        channel_id = config["reminde_channel"] if config else None
+
+                        channel = guild.get_channel(channel_id) if channel_id else None
+                        if not channel or not channel.permissions_for(guild.me).send_messages:
+                            channel = guild.system_channel
+                        if not channel or not channel.permissions_for(guild.me).send_messages:
+                            channel = next(
+                                (c for c in guild.text_channels if c.permissions_for(guild.me).send_messages),
+                                None
+                            )
+
+                        if channel:
+                            embed = discord.Embed(
+                                title=f"`🔔` Task : {row['title']}",
+                                description=row["des"],
+                                color=discord.Color.green(),
+                                timestamp=datetime.combine(row["date"], datetime.min.time())
+                            )
+                            embed.add_field(name="Date", value=str(row["date"]), inline=False)
+                            embed.set_footer(text=f"Reminder for {guild.name}")
+                            try:
+                                await channel.send(embed=embed)
+                            except Exception as e:
+                                logger.warning(f"Konnte Reminder in Guild {row['guildID']} nicht senden: {e}")
+
+                    if guild_rows:
+                        await cur.execute(
+                            "DELETE FROM nexory_guild_tasks WHERE remindme=TRUE AND date<=%s",
                             (today,)
                         )
-                        guild_rows = await cur.fetchall()
-
-                        for row in guild_rows:
-                            guild = self.bot.get_guild(row["guildID"])
-                            if not guild:
-                                continue
-
-                            channel = guild.system_channel
-
-                            if channel is None or not channel.permissions_for(guild.me).send_messages:
-                                channel = next(
-                                    (c for c in guild.text_channels
-                                    if c.permissions_for(guild.me).send_messages),
-                                    None
-                                )
-
-                            if channel:
-                                try:
-                                    await channel.send(
-                                        f"🔔 **Erinnerung:** Aufgabe **{row['title']}** ist heute fällig.\n"
-                                        f"{row['des']}"
-                                    )
-                                except Exception as e:
-                                    logger.warning(
-                                        f"Konnte Reminder in Guild {row['guildID']} nicht senden: {e}"
-                                    )
-
-                        if guild_rows:
-                            await cur.execute(
-                                "DELETE FROM nexory_guild_tasks "
-                                "WHERE remindme=TRUE AND date=%s",
-                                (today,)
-                            )
 
                     await conn.commit()
 
@@ -654,7 +658,6 @@ class tasks(commands.Cog):
     async def before_reminder(self):
         await self.bot.wait_until_ready()
         logger.info("Reminder loop startet... auf Aufgaben prüfen")
-
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(tasks(bot))
