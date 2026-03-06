@@ -4,6 +4,7 @@ from discord.ext import commands, tasks
 from discord import app_commands
 from datetime import datetime
 import pytz
+from typing import Literal
 import aiomysql
 
 
@@ -658,6 +659,44 @@ class tasks(commands.Cog):
     async def before_reminder(self):
         await self.bot.wait_until_ready()
         logger.info("Reminder loop startet... auf Aufgaben prüfen")
+
+    
+    @task.command(name="list", description="List all tasks for the user or guild")
+    async def list_tasks(self, interaction: discord.Interaction, scope: Literal["guild", "user"]):
+        if scope == "user":
+            table_name = "nexory_user_tasks"
+            id_value = interaction.user.id
+            id_field = "userID"
+        else:
+            table_name = "nexory_guild_tasks"
+            id_value = interaction.guild.id
+            id_field = "guildID"
+
+        async with self.bot.pool.acquire() as conn:
+            async with conn.cursor() as cur:
+                await cur.execute(
+                    f"SELECT title, des, date FROM {table_name} WHERE {id_field}=%s",
+                    (id_value,)
+                )
+                rows = await cur.fetchall()
+
+        if not rows:
+            await interaction.response.send_message("No tasks found.", ephemeral=True)
+            return
+
+        embed = discord.Embed(
+            title=f"{scope.title()} Tasks",
+            color=discord.Color.dark_blue(),
+            timestamp=datetime.now()
+        )
+
+        for title, des, date in rows:
+            embed.add_field(name=title, value=f"{des}\nDue: {date}", inline=False)
+
+        embed.set_footer(text="https://github.com/NexoryOrg")
+        embed.set_author(name="Task List", icon_url=interaction.user.display_avatar.url)
+        await interaction.response.send_message(embed=embed, ephemeral=True)
+
 
 async def setup(bot: commands.Bot):
     await bot.add_cog(tasks(bot))
