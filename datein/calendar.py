@@ -24,11 +24,21 @@ class TaskCalendar(commands.Cog):
 
         async with self.bot.pool.acquire() as conn:
             async with conn.cursor() as cur:
-                await cur.execute(
-                    "SELECT mode FROM nexory_guild_config WHERE guildID=%s",
-                    (interaction.guild.id,)
-                )
-                config = await cur.fetchone()
+                if scope.lower() == "guild":
+                    await cur.execute(
+                        "SELECT mode FROM nexory_guild_config WHERE guildID=%s",
+                        (interaction.guild.id,)
+                    )
+                    config = await cur.fetchone()
+                
+                else:
+                    await cur.execute(
+                        "SELECT mode FROM nexory_user_config WHERE userID=%s",
+                        (interaction.user.id,)
+                    )
+                    config = await cur.fetchone()
+        
+        print(f"Abfrageergebnis für {scope} mode: {config}")
 
         mode = config[0] if config else "light"
 
