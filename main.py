@@ -71,6 +71,10 @@ class MainDatei(commands.Bot):
                     "CREATE TABLE IF NOT EXISTS nexory_guild_config (guildID BIGINT, reminde_channel BIGINT, mode TEXT)"
                 )
                 print("Tabelle nexory_guild_config überprüft/erstellt"  )
+                await cur.execute(
+                    "CREATE TABLE IF NOT EXISTS nexory_user_config (userID BIGINT, mode TEXT)"
+                )
+                print("Tabelle nexory_user_config überprüft/erstellt"  )
 
 
     async def on_ready(self):
