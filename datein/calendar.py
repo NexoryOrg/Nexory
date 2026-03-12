@@ -139,13 +139,15 @@ class TaskCalendar(commands.Cog):
                     )
 
                     if remindme:
-                        bell_size = 24 * scale
-                        bell_x = 100*scale + pill_width - 40*scale
-                        bell_y = y_offset + i*task_spacing + pill_height / 2
-                        draw.ellipse(
-                            (bell_x - bell_size/2, bell_y - bell_size/2, bell_x + bell_size/2, bell_y + bell_size/2),
-                            fill=(255, 215, 0)
-                        )
+                        try:
+                            bell_img = Image.open("database/images/belt.png").convert("RGBA")
+                            bell_size = 28 * scale
+                            bell_img = bell_img.resize((bell_size, bell_size))
+                            bell_x = 100*scale + pill_width - 40*scale
+                            bell_y = y_offset + i*task_spacing + pill_height / 2
+                            img.paste(bell_img, (int(bell_x - bell_size/2), int(bell_y - bell_size/2)), bell_img)
+                        except Exception as e:
+                            print("Failed to load bell image:", e)
 
             else:
                 draw.text(
