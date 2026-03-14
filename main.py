@@ -58,23 +58,27 @@ class MainDatei(commands.Bot):
             async with conn.cursor() as cur:
                 await cur.execute(
                     "CREATE TABLE IF NOT EXISTS nexory_user_tasks("
-                    "userID BIGINT, title VARCHAR(50), des LONGTEXT, date DATE, remindme BOOLEAN DEFAULT FALSE)"
+                    "userID BIGINT, title VARCHAR(50), des LONGTEXT, date DATE, remindme BOOLEAN DEFAULT FALSE, tag VARCHAR(10), status VARCHAR(10) DEFAULT 'open', priority VARCHAR(20) DEFAULT 'normal')"
                 )
                 print("Tabelle nexory_user_tasks überprüft/erstellt")
 
                 await cur.execute(
                     "CREATE TABLE IF NOT EXISTS nexory_guild_tasks("
-                    "guildID BIGINT, title VARCHAR(50), des LONGTEXT, date DATE, remindme BOOLEAN DEFAULT FALSE)"
+                    "guildID BIGINT, title VARCHAR(50), des LONGTEXT, date DATE, remindme BOOLEAN DEFAULT FALSE, tag VARCHAR(10), status VARCHAR(10) DEFAULT 'open', priority VARCHAR(20) DEFAULT 'normal')"
                 )
                 print("Tabelle nexory_guild_tasks überprüft/erstellt")
                 await cur.execute(
                     "CREATE TABLE IF NOT EXISTS nexory_guild_config (guildID BIGINT, reminde_channel BIGINT, mode TEXT)"
                 )
-                print("Tabelle nexory_guild_config überprüft/erstellt"  )
+                print("Tabelle nexory_guild_config überprüft/erstellt")
                 await cur.execute(
                     "CREATE TABLE IF NOT EXISTS nexory_user_config (userID BIGINT, mode TEXT)"
                 )
-                print("Tabelle nexory_user_config überprüft/erstellt"  )
+                print("Tabelle nexory_user_config überprüft/erstellt")
+                await cur.execute(
+                    "CREATE TABLE IF NOT EXISTS nexory_guild_custom_tags (guildID BIGINT, tag VARCHAR(10))"
+                )
+                print("Tabelle nexory_guild_custom_tags überprüft/erstellt")
 
 
     async def on_ready(self):
