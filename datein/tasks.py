@@ -762,6 +762,7 @@ class tasks(commands.Cog):
         view.message = await interaction.response.send_message(view=view)
 
     @task.command(name="guild", description="Create a new Guild-Task")
+    @commands.guild_only()
     @commands.has_permissions(administrator=True)
     async def create_guild(self, interaction: discord.Interaction):
         view = TaskView(self.bot, "guild", guild_id=interaction.guild.id)
@@ -868,6 +869,7 @@ class tasks(commands.Cog):
 
     
     @task.command(name="list", description="List all tasks for the user or guild")
+    @commands.guild_only()
     async def list_tasks(self, interaction: discord.Interaction, scope: Literal["guild", "user"]):
         if scope == "user":
             table_name = "nexory_user_tasks"
@@ -892,6 +894,60 @@ class tasks(commands.Cog):
 
         view = TaskListView(rows, scope, interaction.user.id)
         await interaction.response.send_message(embed=view.get_embed(), view=view, ephemeral=True)
+
+
+    @task.command(name="filter", description="Filter tasks by tag/status/user/priority")
+    @commands.guild_only()
+    async def filter_tasks(self, interaction: discord.Interaction, scope: Literal["guild", "user"], filter_by: Literal["tag", "status", "priority"], filter_value: str):
+        if scope == "user":
+            table_name = "nexory_user_tasks"
+            id_value = interaction.user.id
+            id_field = "userID"
+        else:
+            table_name = "nexory_guild_tasks"
+            id_value = interaction.guild.id
+            id_field = "guildID"
+
+        async with self.bot.pool.acquire() as conn:
+            async with conn.cursor() as cur:
+                await cur.execute(
+                    f"SELECT title, des, date FROM {table_name} WHERE {id_field}=%s AND {filter_by}=%s",
+                    (id_value, filter_value)
+                )
+                rows = await cur.fetchall()
+
+        if not rows:
+            await interaction.response.send_message("No tasks found with that filter.", ephemeral=True)
+            return
+
+        message = ""
+        for row in rows:
+            title, des, date = row
+            message += f"**{title}** - {des} ({date})\n"
+
+        await interaction.response.send_message(message[:2000], ephemeral=True)
+
+
+    @task.command(name="set_status", description="Set the status of a task (open/working/closed)")
+    async def set_status(self, interaction: discord.Interaction, scope: Literal["guild", "user"], title: str, status: Literal["open", "working", "closed"]):
+        if scope == "user":
+            table_name = "nexory_user_tasks"
+            id_value = interaction.user.id
+            id_field = "userID"
+        else:
+            table_name = "nexory_guild_tasks"
+            id_value = interaction.guild.id
+            id_field = "guildID"
+
+        async with self.bot.pool.acquire() as conn:
+            async with conn.cursor() as cur:
+                await cur.execute(
+                    f"UPDATE {table_name} SET status=%s WHERE {id_field}=%s AND title=%s",
+                    (status, id_value, title)
+                )
+                await conn.commit()
+
+        await interaction.response.send_message(f"Status of task '{title}' set to '{status}'.", ephemeral=True)
 
 
 async def setup(bot: commands.Bot):
