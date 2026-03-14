@@ -7,6 +7,91 @@ from typing import Literal
 from datetime import date
 import io
 
+
+class CalendarView(discord.ui.View):
+    def __init__(self, cog, scope, month, year, day, user_id):
+        super().__init__(timeout=300)
+        self.cog = cog
+        self.scope = scope
+        self.month = month
+        self.year = year
+        self.day = day
+        self.user_id = user_id
+        self.message = None
+
+    async def update_calendar(self, interaction: discord.Interaction):
+        file = await self.cog.generate_calendar_image(
+            interaction, self.scope, self.month, self.year, self.day
+        )
+
+        if self.message is None:
+            await interaction.response.send_message(file=file, view=self)
+            self.message = await interaction.original_response()
+        else:
+            await interaction.response.edit_message(attachments=[file], view=self)
+
+    @discord.ui.button(label="⬅️", style=discord.ButtonStyle.secondary)
+    async def back(self, interaction: discord.Interaction, button: discord.ui.Button):
+        if interaction.user.id != self.user_id:
+            return await interaction.response.send_message(
+                "You cannot control this calendar.", ephemeral=True
+            )
+
+        if self.day:
+            self.day -= 1
+            if self.day < 1:
+                self.month -= 1
+                if self.month < 1:
+                    self.month = 12
+                    self.year -= 1
+                self.day = calendar.monthrange(self.year, self.month)[1]
+        else:
+            self.month -= 1
+            if self.month < 1:
+                self.month = 12
+                self.year -= 1
+
+        await self.update_calendar(interaction)
+
+    @discord.ui.button(label="today", style=discord.ButtonStyle.primary)
+    async def today(self, interaction: discord.Interaction, button: discord.ui.Button):
+        if interaction.user.id != self.user_id:
+            return await interaction.response.send_message(
+                "You cannot control this calendar.", ephemeral=True
+            )
+
+        today = date.today()
+        self.year = today.year
+        self.month = today.month
+        self.day = None
+
+        await self.update_calendar(interaction)
+
+    @discord.ui.button(label="➡️", style=discord.ButtonStyle.secondary)
+    async def forward(self, interaction: discord.Interaction, button: discord.ui.Button):
+        if interaction.user.id != self.user_id:
+            return await interaction.response.send_message(
+                "You cannot control this calendar.", ephemeral=True
+            )
+
+        if self.day:
+            self.day += 1
+            last_day = calendar.monthrange(self.year, self.month)[1]
+            if self.day > last_day:
+                self.day = 1
+                self.month += 1
+                if self.month > 12:
+                    self.month = 1
+                    self.year += 1
+        else:
+            self.month += 1
+            if self.month > 12:
+                self.month = 1
+                self.year += 1
+
+        await self.update_calendar(interaction)
+
+
 class TaskCalendar(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
@@ -33,6 +118,11 @@ class TaskCalendar(commands.Cog):
         month = month or today.month
         year = year or today.year
 
+        view = CalendarView(self, scope, month, year, day, interaction.user.id)
+        await view.update_calendar(interaction)
+
+    async def generate_calendar_image(self, interaction, scope, month, year, day):
+        today = date.today()
         async with self.bot.pool.acquire() as conn:
             async with conn.cursor() as cur:
                 if scope.lower() == "guild":
@@ -86,6 +176,7 @@ class TaskCalendar(commands.Cog):
 
         try:
             font_title = ImageFont.truetype("arial.ttf", 70 * scale)
+            font_subtitle = ImageFont.truetype("arial.ttf", 50 * scale)
             font_weekday = ImageFont.truetype("arial.ttf", 30 * scale)
             font_day = ImageFont.truetype("arial.ttf", 34 * scale)
             font_task_title = ImageFont.truetype("arial.ttf", 32 * scale)
@@ -93,6 +184,7 @@ class TaskCalendar(commands.Cog):
             font_event = ImageFont.truetype("arial.ttf", 22 * scale)
         except:
             font_title = ImageFont.load_default()
+            font_subtitle = ImageFont.load_default()
             font_weekday = ImageFont.load_default()
             font_day = ImageFont.load_default()
             font_task_title = ImageFont.load_default()
@@ -102,9 +194,16 @@ class TaskCalendar(commands.Cog):
         if day:
             draw.text(
                 (width // 2, 80 * scale),
-                f"Tasks for {day}.{month}.{year}",
+                f"{calendar.day_name[date(year, month, day).weekday()]}, {month}.{day}.{year}",
                 fill=text_color,
                 font=font_title,
+                anchor="mm"
+            )
+            draw.text(
+                (width // 2, 150 * scale),
+                f"{interaction.guild.name if scope.lower() == 'guild' else interaction.user.name}`s Tasks",
+                fill=text_color,
+                font=font_subtitle,
                 anchor="mm"
             )
             y_offset = 200 * scale
@@ -154,7 +253,7 @@ class TaskCalendar(commands.Cog):
                     (width//2, height//2),
                     "No tasks for this day.",
                     fill=subtext_color,
-                    font=font_event,
+                    font=font_weekday,
                     anchor="mm"
                 )
 
@@ -220,15 +319,20 @@ class TaskCalendar(commands.Cog):
                                 more_text, fill=subtext_color, font=font_event, anchor="lm"
                             )
 
+            draw.text(
+                (width // 2, height - 35 * scale),
+                f"{interaction.guild.name if scope.lower() == 'guild' else interaction.user.name}`s Tasks",
+                fill=subtext_color,
+                font=font_task_title,
+                anchor="mm"
+            )
+
         final_img = img.resize((1600, 1100), Image.LANCZOS)
         with io.BytesIO() as image_binary:
             final_img.save(image_binary, "PNG", optimize=True)
             image_binary.seek(0)
-            file = discord.File(fp=image_binary, filename="calendar.png")
-            await interaction.response.send_message(
-                file=file,
-                content=f"📅 **{scope.title()} Calendar** – {calendar.month_name[month]} {year}\nUser: {interaction.user.mention}"
-            )
+            return discord.File(fp=image_binary, filename="calendar.png")
+
 
 async def setup(bot):
     await bot.add_cog(TaskCalendar(bot))
