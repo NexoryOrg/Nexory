@@ -60,10 +60,11 @@ class CalendarView(discord.ui.View):
                 "You cannot control this calendar.", ephemeral=True
             )
 
-        today = date.today()
-        self.year = today.year
-        self.month = today.month
-        self.day = None
+        today_date = date.today()
+        self.year = today_date.year
+        self.month = today_date.month
+        if self.day is not None:
+            self.day = today_date.day
 
         await self.update_calendar(interaction)
 
@@ -194,7 +195,7 @@ class TaskCalendar(commands.Cog):
         if day:
             draw.text(
                 (width // 2, 80 * scale),
-                f"{calendar.day_name[date(year, month, day).weekday()]}, {month}.{day}.{year}",
+                f"{calendar.day_name[date(year, month, day).weekday()]}, {day:02d}.{month:02d}.{year}",
                 fill=text_color,
                 font=font_title,
                 anchor="mm"
