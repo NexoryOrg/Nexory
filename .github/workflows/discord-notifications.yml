@@ -1,0 +1,403 @@
+name: Discord Notifications
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+  pull_request:
+    types: [closed]
+  issues:
+    types: [opened, closed, reopened]
+  discussion:
+    types: [created, answered]
+
+jobs:
+  discord_notify:
+    runs-on: ubuntu-latest
+    env:
+      DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+      DISCORD_THREAD_ID_PUSH: ${{ secrets.DISCORD_THREAD_ID_PUSH }}
+      DISCORD_THREAD_ID_PR: ${{ secrets.DISCORD_THREAD_ID_PR }}
+      DISCORD_THREAD_ID_ISSUES: ${{ secrets.DISCORD_THREAD_ID_ISSUES }}
+      DISCORD_THREAD_ID_DISCUSSIONS: ${{ secrets.DISCORD_THREAD_ID_DISCUSSIONS }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Check Discord webhook
+        run: |
+          if [ -z "$DISCORD_WEBHOOK" ]; then
+            echo "DISCORD_WEBHOOK is not available in this workflow context."
+            echo "For pull_request events from forks, GitHub does not expose repository secrets."
+            exit 1
+          fi
+
+      - name: Build and Send Push Notification
+        if: github.event_name == 'push'
+        run: |
+          HEAD=$(jq -r '.head_commit' $GITHUB_EVENT_PATH)
+          if [ "$HEAD" == "null" ]; then
+            echo "⚠️ Empty push detected - skipping notification"
+            exit 0
+          fi
+
+          COMMIT_MSG=$(jq -r '.head_commit.message' $GITHUB_EVENT_PATH | head -1)
+          COMMIT_SHA=$(jq -r '.head_commit.id' $GITHUB_EVENT_PATH | cut -c1-7)
+          COMMIT_URL=$(jq -r '.head_commit.url' $GITHUB_EVENT_PATH)
+          COMMIT_AUTHOR=$(jq -r '.head_commit.author.username' $GITHUB_EVENT_PATH)
+          BEFORE_SHA=$(jq -r '.before' $GITHUB_EVENT_PATH)
+          AFTER_SHA=$(jq -r '.after' $GITHUB_EVENT_PATH)
+
+          if [ -n "$BEFORE_SHA" ] && [ "$BEFORE_SHA" != "0000000000000000000000000000000000000000" ]; then
+            CHANGED_FILES=$(git diff --name-status "$BEFORE_SHA" "$AFTER_SHA")
+          else
+            CHANGED_FILES=$(git diff-tree --no-commit-id --name-status -r "$AFTER_SHA")
+          fi
+
+          ADDITIONS=$(printf '%s\n' "$CHANGED_FILES" | awk '$1 == "A" { count++ } END { print count + 0 }')
+          DELETIONS=$(printf '%s\n' "$CHANGED_FILES" | awk '$1 == "D" { count++ } END { print count + 0 }')
+          MODIFICATIONS=$(printf '%s\n' "$CHANGED_FILES" | awk '$1 != "" && $1 != "A" && $1 != "D" { count++ } END { print count + 0 }')
+
+          REPO=$GITHUB_REPOSITORY
+          BRANCH=${GITHUB_REF#refs/heads/}
+
+          LAST_COMMIT_FILES=$(git diff-tree --no-commit-id --name-status -r "$AFTER_SHA")
+          FILES_SUMMARY=""
+          FILE_COUNT=0
+
+          while IFS=$'\t' read -r STATUS PATH_ONE PATH_TWO; do
+            if [ -z "$STATUS" ]; then
+              continue
+            fi
+
+            FILE_COUNT=$((FILE_COUNT + 1))
+            if [ "$FILE_COUNT" -gt 5 ]; then
+              break
+            fi
+
+            ICON="✏️"
+            DISPLAY_PATH="$PATH_ONE"
+            DIFF_TARGET="$PATH_ONE"
+
+            case "$STATUS" in
+              A)
+                ICON="➕"
+                ;;
+              D)
+                ICON="🗑️"
+                ;;
+              M)
+                ICON="✏️"
+                ;;
+              R*)
+                ICON="🔀"
+                DISPLAY_PATH="$PATH_ONE → $PATH_TWO"
+                DIFF_TARGET="$PATH_TWO"
+                ;;
+              *)
+                ICON="📄"
+                ;;
+            esac
+
+            NUMSTAT=$(git diff --numstat "$AFTER_SHA^!" -- "$DIFF_TARGET" | head -n 1)
+            if [ -z "$NUMSTAT" ]; then
+              PREVIEW="• Keine Aenderungsstatistik verfuegbar"
+            else
+              FILE_ADDITIONS=$(printf '%s\n' "$NUMSTAT" | awk '{ if ($1 == "-") print 0; else print $1 + 0 }')
+              FILE_DELETIONS=$(printf '%s\n' "$NUMSTAT" | awk '{ if ($2 == "-") print 0; else print $2 + 0 }')
+              PREVIEW=$(printf '• +%s / -%s Zeilen' "$FILE_ADDITIONS" "$FILE_DELETIONS")
+            fi
+
+            ENTRY=$(printf '%s %s\n%s' "$ICON" "$DISPLAY_PATH" "$PREVIEW")
+
+            if [ -z "$FILES_SUMMARY" ]; then
+              FILES_SUMMARY="$ENTRY"
+            else
+              FILES_SUMMARY=$(printf '%s\n\n%s' "$FILES_SUMMARY" "$ENTRY")
+            fi
+          done <<< "$LAST_COMMIT_FILES"
+
+          TOTAL_LAST_COMMIT_FILES=$(printf '%s\n' "$LAST_COMMIT_FILES" | sed '/^$/d' | wc -l | tr -d ' ')
+          if [ "$TOTAL_LAST_COMMIT_FILES" -gt 5 ]; then
+            FILES_SUMMARY=$(printf '%s\n\n📁 ... +%s weitere Dateien' "$FILES_SUMMARY" "$((TOTAL_LAST_COMMIT_FILES - 5))")
+          fi
+
+          if [ ${#FILES_SUMMARY} -gt 950 ]; then
+            FILES_SUMMARY=$(printf '%s\n\n📁 ... (Ausgabe gekuerzt)' "${FILES_SUMMARY:0:900}")
+          fi
+
+          STATS="📊 +$ADDITIONS | -$DELETIONS | ~$MODIFICATIONS"
+          FOOTER_TEXT="NexoryOrg"
+          TIMESTAMP="$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+
+          EMBED=$(jq -n \
+            --arg repo "$REPO" \
+            --arg branch "$BRANCH" \
+            --arg sha "$COMMIT_SHA" \
+            --arg msg "$COMMIT_MSG" \
+            --arg url "$COMMIT_URL" \
+            --arg author "$COMMIT_AUTHOR" \
+            --arg stats "$STATS" \
+            --arg filesSummary "$FILES_SUMMARY" \
+            --arg footer "$FOOTER_TEXT" \
+            --arg ts "$TIMESTAMP" \
+            '{
+              content: ("🔔 **GitHub Activity** | `" + $repo + "`"),
+              embeds: [
+                {
+                  title: ("Push to " + $branch),
+                  description: ("`" + $sha + "` " + $msg),
+                  url: $url,
+                  color: 5763719,
+                  author: {
+                    name: $author,
+                    url: ("https://github.com/" + $author),
+                    icon_url: ("https://github.com/" + $author + ".png")
+                  },
+                  fields: [
+                    {
+                      name: "Changes",
+                      value: $stats,
+                      inline: false
+                    },
+                    {
+                      name: "Files (last commit)",
+                      value: ("" + $filesSummary + "\n"),
+                      inline: false
+                    }
+                  ],
+                  footer: {
+                    text: $footer
+                  },
+                  timestamp: $ts
+                }
+              ]
+            }')
+
+          THREAD_PARAM="thread_name=Commits"
+          if [ -n "$DISCORD_THREAD_ID_PUSH" ]; then
+            THREAD_PARAM="thread_id=$DISCORD_THREAD_ID_PUSH"
+          fi
+
+          WEBHOOK_SEP="?"
+          case "$DISCORD_WEBHOOK" in
+            *\?*) WEBHOOK_SEP="&" ;;
+          esac
+
+          curl --fail-with-body -sS -X POST "$DISCORD_WEBHOOK${WEBHOOK_SEP}$THREAD_PARAM" \
+            -H "Content-Type: application/json" \
+            -d "$EMBED"
+
+      - name: Build and Send Merge Notification
+        if: github.event_name == 'pull_request' && github.event.pull_request.merged == true
+        run: |
+          PR_TITLE=$(jq -r '.pull_request.title' $GITHUB_EVENT_PATH)
+          PR_URL=$(jq -r '.pull_request.html_url' $GITHUB_EVENT_PATH)
+          PR_NUMBER=$(jq -r '.pull_request.number' $GITHUB_EVENT_PATH)
+          PR_USER=$(jq -r '.pull_request.user.login' $GITHUB_EVENT_PATH)
+          PR_BRANCH=$(jq -r '.pull_request.head.ref' $GITHUB_EVENT_PATH)
+          PR_BASE=$(jq -r '.pull_request.base.ref' $GITHUB_EVENT_PATH)
+          PR_ADDITIONS=$(jq -r '.pull_request.additions' $GITHUB_EVENT_PATH)
+          PR_DELETIONS=$(jq -r '.pull_request.deletions' $GITHUB_EVENT_PATH)
+          REPO="${GITHUB_REPOSITORY}"
+          FOOTER_TEXT="NexoryOrg"
+          TIMESTAMP="$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          CHANGES="+$PR_ADDITIONS | -$PR_DELETIONS"
+
+          EMBED=$(jq -n \
+            --arg repo "$REPO" \
+            --arg number "$PR_NUMBER" \
+            --arg title "$PR_TITLE" \
+            --arg url "$PR_URL" \
+            --arg user "$PR_USER" \
+            --arg branch "$PR_BRANCH" \
+            --arg base "$PR_BASE" \
+            --arg changes "$CHANGES" \
+            --arg footer "$FOOTER_TEXT" \
+            --arg ts "$TIMESTAMP" \
+            '{
+              content: ("🔔 **GitHub Activity** | `" + $repo + "`"),
+              embeds: [
+                {
+                  title: ("✅ Pull Request #" + $number + " merged"),
+                  description: $title,
+                  url: $url,
+                  color: 5763719,
+                  author: {
+                    name: $user,
+                    url: ("https://github.com/" + $user),
+                    icon_url: ("https://github.com/" + $user + ".png")
+                  },
+                  fields: [
+                    {
+                      name: "Branch",
+                      value: ("`" + $branch + "` → `" + $base + "`"),
+                      inline: true
+                    },
+                    {
+                      name: "Changes",
+                      value: $changes,
+                      inline: true
+                    }
+                  ],
+                  footer: {
+                    text: $footer
+                  },
+                  timestamp: $ts
+                }
+              ]
+            }')
+
+          THREAD_PARAM="thread_name=Pull Requests"
+          if [ -n "$DISCORD_THREAD_ID_PR" ]; then
+            THREAD_PARAM="thread_id=$DISCORD_THREAD_ID_PR"
+          fi
+
+          WEBHOOK_SEP="?"
+          case "$DISCORD_WEBHOOK" in
+            *\?*) WEBHOOK_SEP="&" ;;
+          esac
+
+          curl --fail-with-body -sS -X POST "$DISCORD_WEBHOOK${WEBHOOK_SEP}$THREAD_PARAM" \
+            -H "Content-Type: application/json" \
+            -d "$EMBED"
+
+      - name: Build and Send Issue Notification
+        if: github.event_name == 'issues'
+        run: |
+          ISSUE_TITLE=$(jq -r '.issue.title' $GITHUB_EVENT_PATH)
+          ISSUE_URL=$(jq -r '.issue.html_url' $GITHUB_EVENT_PATH)
+          ISSUE_NUMBER=$(jq -r '.issue.number' $GITHUB_EVENT_PATH)
+          ISSUE_USER=$(jq -r '.issue.user.login' $GITHUB_EVENT_PATH)
+          ISSUE_ACTION=$(jq -r '.action' $GITHUB_EVENT_PATH)
+          ISSUE_LABELS=$(jq -r '.issue.labels[].name' $GITHUB_EVENT_PATH | paste -sd, -)
+
+          case "$ISSUE_ACTION" in
+            opened)
+              COLOR=2123412
+              ICON="🆕"
+              ;;
+            closed)
+              COLOR=5763719
+              ICON="✅"
+              ;;
+            reopened)
+              COLOR=15105570
+              ICON="🔄"
+              ;;
+            *)
+              COLOR=9807270
+              ICON="📌"
+              ;;
+          esac
+
+          if [ -z "$ISSUE_LABELS" ]; then
+            ISSUE_LABELS="None"
+          fi
+
+          EMBED=$(cat <<EOF
+          {
+            "content": "🔔 **GitHub Activity** | \`${{ github.repository }}\`",
+            "embeds": [
+              {
+                "title": "$ICON Issue #$ISSUE_NUMBER",
+                "description": "$ISSUE_TITLE",
+                "url": "$ISSUE_URL",
+                "color": $COLOR,
+                "author": {
+                  "name": "$ISSUE_USER",
+                  "url": "https://github.com/$ISSUE_USER",
+                  "icon_url": "https://github.com/$ISSUE_USER.png"
+                },
+                "fields": [
+                  {
+                    "name": "Status",
+                    "value": "$ISSUE_ACTION",
+                    "inline": true
+                  },
+                  {
+                    "name": "Labels",
+                    "value": "$ISSUE_LABELS",
+                    "inline": true
+                  }
+                ],
+                "footer": {
+                  "text": "NexoryOrg"
+                },
+                "timestamp": "$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+              }
+            ]
+          }
+          EOF
+          )
+
+          THREAD_PARAM="thread_name=Issues"
+          if [ -n "$DISCORD_THREAD_ID_ISSUES" ]; then
+            THREAD_PARAM="thread_id=$DISCORD_THREAD_ID_ISSUES"
+          fi
+
+          WEBHOOK_SEP="?"
+          case "$DISCORD_WEBHOOK" in
+            *\?*) WEBHOOK_SEP="&" ;;
+          esac
+
+          curl --fail-with-body -sS -X POST "$DISCORD_WEBHOOK${WEBHOOK_SEP}$THREAD_PARAM" \
+            -H "Content-Type: application/json" \
+            -d "$EMBED"
+
+      - name: Build and Send Discussion Notification
+        if: github.event_name == 'discussion'
+        run: |
+          DISC_TITLE=$(jq -r '.discussion.title' $GITHUB_EVENT_PATH)
+          DISC_URL=$(jq -r '.discussion.html_url' $GITHUB_EVENT_PATH)
+          DISC_NUMBER=$(jq -r '.discussion.number' $GITHUB_EVENT_PATH)
+          DISC_USER=$(jq -r '.discussion.user.login' $GITHUB_EVENT_PATH)
+          DISC_ACTION=$(jq -r '.action' $GITHUB_EVENT_PATH)
+
+          EMBED=$(cat <<EOF
+          {
+            "content": "🔔 **GitHub Activity** | \`${{ github.repository }}\`",
+            "embeds": [
+              {
+                "title": "💬 Discussion #$DISC_NUMBER",
+                "description": "$DISC_TITLE",
+                "url": "$DISC_URL",
+                "color": 7506394,
+                "author": {
+                  "name": "$DISC_USER",
+                  "url": "https://github.com/$DISC_USER",
+                  "icon_url": "https://github.com/$DISC_USER.png"
+                },
+                "fields": [
+                  {
+                    "name": "Event",
+                    "value": "$DISC_ACTION",
+                    "inline": false
+                  }
+                ],
+                "footer": {
+                  "text": "NexoryOrg"
+                },
+                "timestamp": "$(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+              }
+            ]
+          }
+          EOF
+          )
+
+          THREAD_PARAM="thread_name=Discussions"
+          if [ -n "$DISCORD_THREAD_ID_DISCUSSIONS" ]; then
+            THREAD_PARAM="thread_id=$DISCORD_THREAD_ID_DISCUSSIONS"
+          fi
+
+          WEBHOOK_SEP="?"
+          case "$DISCORD_WEBHOOK" in
+            *\?*) WEBHOOK_SEP="&" ;;
+          esac
+
+          curl --fail-with-body -sS -X POST "$DISCORD_WEBHOOK${WEBHOOK_SEP}$THREAD_PARAM" \
+            -H "Content-Type: application/json" \
+            -d "$EMBED"
