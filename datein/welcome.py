@@ -10,8 +10,6 @@ class Welcome(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
-    #test
-
     @commands.command(name="welcome_banner")
     async def welcome_banner(self, ctx, member: discord.Member):
         import os, io, aiohttp
